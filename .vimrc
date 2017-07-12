@@ -1,29 +1,29 @@
 " UI Config {{{
-set number         "show line numbers
-set showcmd        "show command in bottom bar
-set cursorline     "highlight current line
-set wildmenu       "visual autocomplete for command menu
-set showmatch      "highlight matching parentheses
+set number                                   "show line numbers
+set showcmd                                  "show command in bottom bar
+set cursorline                               "highlight current line
+set wildmenu                                 "visual autocomplete for command menu
+set showmatch                                "highlight matching parentheses
 " }}}
 
 " Search {{{
-set incsearch      "search as chars are entered
-set hlsearch       "highlight search matches
-let mapleader=","
+set incsearch                                "search as chars are entered
+set hlsearch                                 "highlight search matches
+let mapleader=","                           
 nnoremap <leader><space> :nohlsearch <CR>
 " }}} 
 
 " Spaces V Tabs {{{
-set tabstop=4      "4 space tab
-set expandtab      "use spaces for tabs
-set softtabstop=4  "number of spaces in tab when editing
+set tabstop=4                                "4 space tab
+set expandtab                                "use spaces for tabs
+set softtabstop=4                            "number of spaces in tab when editing
 " }}}
 
 " Vim Plug {{{
 call plug#begin('~/.vim/plugged')
-Plug 'nvie/vim-flake8'
-Plug 'klen/python-mode'            " All encompassing Py Dev Package
-Plug 'leafgarland/typescript-vim'  " Angular syntax highlighting
+Plug 'nvie/vim-flake8'                       " Perhaps redundant with python-mode included
+Plug 'klen/python-mode'                      " All encompassing Py Dev Package
+Plug 'leafgarland/typescript-vim'            " Angular syntax highlighting
 call plug#end()
 " }}}
 
@@ -42,15 +42,15 @@ let g:pymode_breakpoint = 1                  " enable python breakpoint plugin, 
 let g:pymode_breakpoint_bind = '<leader>b'   " bind to ,b from command mode
 
 let g:pymode_lint = 1                        " enable pymode lint plugin
-let g:pymode_lint_on_fly = 1
+let g:pymode_lint_on_fly = 1 
 let g:pymode_lint_checkers = ['mccabe', 'pep8', 'pep257', 'pyflakes']
 let g:pymode_lint_options_mccabe = { 'complexity': 3 }
 let g:pymode_lint_select ="E,W,C"
 
-let g:pymode_syntax = 1
+let g:pymode_syntax = 1                      " enable pymode syntax highlighting
 
-let g:pymode_rope_completion = 1
-let g:pymode_rope_complete_on_dot = 1
+let g:pymode_rope_completion = 1             " enable pymode rope syntax autocompletion
+let g:pymode_rope_complete_on_dot = 1        " enable . function autocomplete for libraries
 
 let g:pymode_python = 'python3'              " pymode defaults to python2 syntax checking
 let g:pymode_options_max_line_length = 79    " fix max line length to pep8 standard
