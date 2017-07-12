@@ -30,7 +30,7 @@ call plug#end()
 " PyMode Specific Settings {{{
 " Change guide reference: 
 " https://github.com/python-mode/python-mode/blob/develop/doc/pymode.txt
-let g:pymode_folding = 0                     " keep pymode code folding disabled
+let g:pymode_folding = 1                     " enable pymode code folding disabled
 
 let g:pymode_doc = 1                         " enable pymode_docs plugin
 let g:pymode_doc_bind ='K'                   " bind to K from command mode
