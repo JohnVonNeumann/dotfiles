@@ -30,7 +30,7 @@ call plug#end()
 " PyMode Specific Settings {{{
 " Change guide reference: 
 " https://github.com/python-mode/python-mode/blob/develop/doc/pymode.txt
-let g:pymode_folding = 1                     " enable pymode code folding disabled
+let g:pymode_folding = 0                     " disable pymode code folding disabled
 
 let g:pymode_doc = 1                         " enable pymode_docs plugin
 let g:pymode_doc_bind ='K'                   " bind to K from command mode
@@ -52,6 +52,7 @@ let g:pymode_syntax = 1                      " enable pymode syntax highlighting
 let g:pymode_rope_completion = 1             " enable pymode rope syntax autocompletion
 let g:pymode_rope_complete_on_dot = 1        " enable . function autocomplete for libraries
 
+let g:pymode_indent = 1                      " think I have this sorted, will experiment
 let g:pymode_python = 'python3'              " pymode defaults to python2 syntax checking
 let g:pymode_options_max_line_length = 79    " fix max line length to pep8 standard
 let g:pymode_options_colorcolumn = 1         " create red border at 79 chars
