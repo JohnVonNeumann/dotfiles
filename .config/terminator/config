@@ -1,4 +1,5 @@
 [global_config]
+  title_font = Sans 13
 [keybindings]
 [layouts]
   [[default]]
@@ -28,7 +29,7 @@
     [[[terminal2]]]
       order = 0
       parent = child1
-      profile = default
+      profile = None
       type = Terminal
       uuid = 68e86ca5-7124-47d3-9c7b-802eb20fd98f
     [[[terminal4]]]
@@ -89,4 +90,10 @@
 [profiles]
   [[default]]
     background_image = None
+    font = Monospace 12
     scrollback_lines = 4000
+    use_system_font = False
+  [[New Profile]]
+    background_image = None
+    font = Sans 11
+    use_system_font = False
