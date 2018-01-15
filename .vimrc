@@ -25,6 +25,7 @@ Plug 'nvie/vim-flake8'                       " Perhaps redundant with python-mod
 Plug 'ervandew/supertab'
 Plug 'davidhalter/jedi-vim'
     " <Ctrl-Space> to enable autocomplete
+Plug 'tpope/vim-fugitive' " Git wrapper for vim
 call plug#end()
 " }}}
 
