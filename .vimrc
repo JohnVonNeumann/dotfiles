@@ -26,6 +26,7 @@ Plug 'ervandew/supertab'
 Plug 'davidhalter/jedi-vim'
     " <Ctrl-Space> to enable autocomplete
 Plug 'tpope/vim-fugitive' " Git wrapper for vim
+Plug 'pearofducks/ansible-vim'   " Ansible Vim
 call plug#end()
 " }}}
 
