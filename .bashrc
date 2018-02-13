@@ -123,14 +123,14 @@ fi
 #######################################
 
 # Useful alias
-alias lintmelikeoneofyourfrenchgirls="pylint --rcfile=conf/pylint.conf backend"
-alias process_roles="ls ~/code/work/infrastructure/ansible/roles/process/aws/"
-alias generic_roles="ls ~/code/work/infrastructure/ansible/roles/generic/aws/"
+alias lsprocessroles="ls ~/code/work/infrastructure/ansible/roles/process/aws/"
+alias lsgenericroles="ls ~/code/work/infrastructure/ansible/roles/generic/aws/"
 alias cdta="cd /home/lw/code/work/travel_analytics"
 alias cdansible="cd /home/lw/code/work/ansible"
-alias deact="deactivate"
-alias c="clear"
 alias cdinfra="cd /home/lw/code/work/infrastructure"
+alias c="clear"
+alias deact="deactivate"
+alias lintmelikeoneofyourfrenchgirls="pylint --rcfile=conf/pylint.conf backend"
 
 # AWS
 complete -C '/usr/bin/aws_completer' aws
