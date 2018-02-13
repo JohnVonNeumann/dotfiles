@@ -131,6 +131,10 @@ avview () {
   ansible-vault view $1
 }
 
+apb () {
+ ansible-playbook $1 --ask-vault-pass
+} 
+
 # Useful alias
 alias lsprocessroles="ls ~/code/work/infrastructure/ansible/roles/process/aws/"
 alias lsgenericroles="ls ~/code/work/infrastructure/ansible/roles/generic/aws/"
