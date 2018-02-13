@@ -124,6 +124,8 @@ fi
 
 # Useful alias
 alias lintmelikeoneofyourfrenchgirls="pylint --rcfile=conf/pylint.conf backend"
+alias process_roles="ls ~/code/work/infrastructure/ansible/roles/process/aws/"
+alias generic_roles="ls ~/code/work/infrastructure/ansible/roles/generic/aws/"
 alias cdta="cd /home/lw/code/work/travel_analytics"
 alias cdansible="cd /home/lw/code/work/ansible"
 alias deact="deactivate"
