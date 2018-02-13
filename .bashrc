@@ -122,6 +122,15 @@ fi
 # PERSONALLY EDITED CHANGES TO BASHRC #
 #######################################
 
+# ansible-vault related shortcut/functions
+avedit () {
+  ansible-vault edit $1
+}
+
+avview () {
+  ansible-vault view $1
+}
+
 # Useful alias
 alias lsprocessroles="ls ~/code/work/infrastructure/ansible/roles/process/aws/"
 alias lsgenericroles="ls ~/code/work/infrastructure/ansible/roles/generic/aws/"
