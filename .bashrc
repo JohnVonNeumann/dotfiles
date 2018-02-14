@@ -122,7 +122,7 @@ fi
 # PERSONALLY EDITED CHANGES TO BASHRC #
 #######################################
 
-# ansible-vault related shortcut/functions
+# ansible related shortcut/functions
 avedit () {
   ansible-vault edit $1
 }
@@ -135,7 +135,10 @@ apb () {
  ansible-playbook $1 --ask-vault-pass
 } 
 
-# Useful alias
+# git aliases
+alias gitremoveallmergedlocals="git branch --merged | egrep -v '(^\*|master|dev)' | xargs git branch -d"
+
+# Useful filesystem/project aliases
 alias lsprocessroles="ls ~/code/work/infrastructure/ansible/roles/process/aws/"
 alias lsgenericroles="ls ~/code/work/infrastructure/ansible/roles/generic/aws/"
 alias cdta="cd /home/lw/code/work/travel_analytics"
@@ -143,9 +146,13 @@ alias cdansible="cd /home/lw/code/work/infrastructure/ansible"
 alias cdinfra="cd /home/lw/code/work/infrastructure"
 alias cdprocessroles="cd /home/lw/code/work/infrastructure/ansible/roles/process && ls"
 alias cdgenericroles="cd /home/lw/code/work/infrastructure/ansible/roles/generic && ls" 
+
+# bash/terminal aliases
 alias c="clear"
-alias deact="deactivate"
+
+# python project aliases
 alias lintmelikeoneofyourfrenchgirls="pylint --rcfile=conf/pylint.conf backend"
+alias deact="deactivate"
 
 # AWS
 complete -C '/usr/bin/aws_completer' aws
