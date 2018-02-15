@@ -122,7 +122,7 @@ fi
 # PERSONALLY EDITED CHANGES TO BASHRC #
 #######################################
 
-# ansible related shortcut/functions
+### ansible related shortcut/functions ###
 avedit () {
   ansible-vault edit $1
 }
@@ -135,10 +135,10 @@ apb () {
  ansible-playbook $1 --ask-vault-pass
 } 
 
-# git aliases
+### git aliases ###
 alias gitremoveallmergedlocals="git branch --merged | egrep -v '(^\*|master|dev)' | xargs git branch -d"
 
-# Useful filesystem/project aliases
+### Useful filesystem/project aliases ###
 alias lsprocessroles="ls ~/code/work/infrastructure/ansible/roles/process/aws/"
 alias lsgenericroles="ls ~/code/work/infrastructure/ansible/roles/generic/aws/"
 alias cdta="cd /home/lw/code/work/travel_analytics"
@@ -147,22 +147,24 @@ alias cdinfra="cd /home/lw/code/work/infrastructure"
 alias cdprocessroles="cd /home/lw/code/work/infrastructure/ansible/roles/process && ls"
 alias cdgenericroles="cd /home/lw/code/work/infrastructure/ansible/roles/generic && ls" 
 
-# bash/terminal aliases
-alias c="clear"
+### bash/terminal aliases ###
+# xclip is apt installed, provides an easy access point to the x clipboard
+alias c="xclip"        # eg: $ pwd | c
+alias p="xclip -o"     # eg: cd `p`
 
-# python project aliases
+#### python project aliases ###
 alias lintmelikeoneofyourfrenchgirls="pylint --rcfile=conf/pylint.conf backend"
 alias deact="deactivate"
 
-# AWS
+### aws ###
 complete -C '/usr/bin/aws_completer' aws
 
-# MIT Scheme Edwin
+### MIT Scheme Edwin ###
 alias edwin="mit-scheme --edit"
 
-# Venv Management
+### Venv Management ###
 export PYTHONPATH=.
 source /usr/local/bin/activate.sh
 
-# Add /programs to PATH
+### Add /programs to PATH ###
 export PATH="$PATH:$HOME/programs"
