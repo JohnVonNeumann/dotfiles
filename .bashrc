@@ -166,5 +166,8 @@ alias edwin="mit-scheme --edit"
 export PYTHONPATH=.
 source /usr/local/bin/activate.sh
 
+### Vim to Nvim ###
+alias vim="nvim"
+
 ### Add /programs to PATH ###
 export PATH="$PATH:$HOME/programs"
