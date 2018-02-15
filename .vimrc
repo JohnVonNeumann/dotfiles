@@ -17,7 +17,13 @@ nnoremap <leader><space> :nohlsearch <CR>
 set tabstop=4                                "4 space tab
 set expandtab                                "use spaces for tabs
 set softtabstop=4                            "number of spaces in tab when editing
+set smartindent                              "autoindent to last level of code
 " }}}
+
+" Ansible-Vim settings {{{
+let g:ansible_unindent_after_newline = 1     "unindents to base left marg on double enter
+" }}}
+
 
 " Vim Plug {{{
 call plug#begin('~/.vim/plugged')
