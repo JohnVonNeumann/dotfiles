@@ -24,10 +24,15 @@ set smartindent                              "autoindent to last level of code
 let g:ansible_unindent_after_newline = 1     "unindents to base left marg on double enter
 " }}}
 
+" Vim-Airline settings {{{
+" will make some edits to this as I play with it
+" }}}
+
 
 " Vim Plug {{{
 call plug#begin('~/.vim/plugged')
 Plug 'nvie/vim-flake8'                       " Perhaps redundant with python-mode included
+Plug 'vim-airline/vim-airline'               " bottom status barring, for a more ide feel
 Plug 'ervandew/supertab'
 Plug 'davidhalter/jedi-vim'
     " <Ctrl-Space> to enable autocomplete
