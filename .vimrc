@@ -28,10 +28,14 @@ let g:ansible_unindent_after_newline = 1     "unindents to base left marg on dou
 " will make some edits to this as I play with it
 " }}}
 
+" indentline settings {{{
+" will make some edits to this as I play with it
+" }}}
 
 " Vim Plug {{{
 call plug#begin('~/.vim/plugged')
 Plug 'nvie/vim-flake8'                       " Perhaps redundant with python-mode included
+Plug 'yggdroot/indentline'                   " indentation indicator support
 Plug 'vim-airline/vim-airline'               " bottom status barring, for a more ide feel
 Plug 'ervandew/supertab'
 Plug 'davidhalter/jedi-vim'
