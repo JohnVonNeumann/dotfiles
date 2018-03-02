@@ -135,6 +135,12 @@ apb () {
  ansible-playbook $1 --ask-vault-pass
 } 
 
+### yamllinting function for non-annoying parsing of config
+yl () {
+  yamllint -c ~/code/work/infrastructure/.yamllint $1
+}
+
+
 ### git aliases ###
 alias gitremoveallmergedlocals="git branch --merged | egrep -v '(^\*|master|dev)' | xargs git branch -d"
 
@@ -152,9 +158,9 @@ alias cdgenericroles="cd /home/lw/code/work/infrastructure/ansible/roles/generic
 alias c="xclip"        # eg: $ pwd | c
 alias p="xclip -o"     # eg: cd `p`
 
-#### python project aliases ###
+### python project aliases ###
 alias lintmelikeoneofyourfrenchgirls="pylint --rcfile=conf/pylint.conf backend"
-alias deact="deactivate"
+alias deact="deactivate" 
 
 ### aws ###
 complete -C '/usr/bin/aws_completer' aws
