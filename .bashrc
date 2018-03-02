@@ -140,6 +140,10 @@ yl () {
   yamllint -c ~/code/work/infrastructure/.yamllint $1
 }
 
+### Random system functions, not all of which are written by me
+wifi_strength () {
+  watch -n 1 "awk 'NR==3 {print \"WiFi Signal Strength = \" \$3 \"00 %\"}''' /proc/net/wireless"
+}
 
 ### git aliases ###
 alias gitremoveallmergedlocals="git branch --merged | egrep -v '(^\*|master|dev)' | xargs git branch -d"
