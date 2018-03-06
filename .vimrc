@@ -40,8 +40,9 @@ Plug 'vim-airline/vim-airline'               " bottom status barring, for a more
 Plug 'ervandew/supertab'
 Plug 'davidhalter/jedi-vim'
     " <Ctrl-Space> to enable autocomplete
-Plug 'tpope/vim-fugitive' " Git wrapper for vim
-Plug 'pearofducks/ansible-vim'   " Ansible Vim
+Plug 'tpope/vim-fugitive'                    " Git wrapper for vim
+Plug 'pearofducks/ansible-vim'               " Ansible Vim
+Plug 'posva/vim-vue'                         " syntax highlighting for vue
 call plug#end()
 " }}}
 
