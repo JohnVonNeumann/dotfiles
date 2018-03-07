@@ -164,7 +164,7 @@ alias gitremoveallmergedlocals="git branch --merged | egrep -v '(^\*|master|dev)
 ### Useful filesystem/project aliases ###
 alias lsprocessroles="ls ~/code/work/infrastructure/ansible/roles/process/aws/"
 alias lsgenericroles="ls ~/code/work/infrastructure/ansible/roles/generic/aws/"
-alias cdta="cd /home/lw/code/work/travel_analytics"
+alias cdbackend="cd /home/lw/code/work/travel_analytics"
 alias cdfrontend="cd /home/lw/code/work/frontend"
 alias cdansible="cd /home/lw/code/work/infrastructure/ansible"
 alias cdinfra="cd /home/lw/code/work/infrastructure"
