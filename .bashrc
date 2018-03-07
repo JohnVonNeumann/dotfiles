@@ -122,6 +122,11 @@ fi
 # PERSONALLY EDITED CHANGES TO BASHRC #
 #######################################
 
+### Useful file locations
+# TODO refactor aliases and other funcs to utilise these vars
+export BACKEND_REPO=~/code/work/travel_analytics
+export FRONTEND_REPO=~/code/work/frontend
+
 ### ansible related shortcut/functions ###
 avedit () {
   ansible-vault edit $1
@@ -143,6 +148,14 @@ yl () {
 ### Random system functions, not all of which are written by me
 wifi_strength () {
   watch -n 1 "awk 'NR==3 {print \"WiFi Signal Strength = \" \$3 \"00 %\"}''' /proc/net/wireless"
+}
+
+### lazy js dist packaging, i could learn a tool lol
+packagemelikeoneofyourfrenchgirls () {
+  cd $FRONTEND_REPO
+  npm install
+  npm run build
+  cp -r dist/ $BACKEND_REPO/backend 
 }
 
 ### git aliases ###
