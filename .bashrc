@@ -158,6 +158,22 @@ packagemelikeoneofyourfrenchgirls () {
   cp -r dist/ $BACKEND_REPO/backend 
 }
 
+### General code cleaning 
+alias whitespaceassassin="ex +'bufdo!%s/\s\+$//' -scx *.*"
+  # Regex:
+  #  % | every line
+  #  s | substitute
+  # \s | whitespace char
+  # \+ | one or more 
+  #  $ | to end of file
+  # // | replace with nothing
+  # :help Ex is a mode of vim that provides extra cmd line processing
+  #  + | command following will be exec'd after first file is read
+  # -s | silent mode
+  # -c | command, i think, docs are shaky, doesnt work without 
+  # -x | use encryption, doesnt seem to work without it, hangs
+
+
 ### git aliases ###
 alias gitremoveallmergedlocals="git branch --merged | egrep -v '(^\*|master|dev)' | xargs git branch -d"
 
