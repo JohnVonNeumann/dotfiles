@@ -163,7 +163,7 @@ packagemelikeoneofyourfrenchgirls () {
 }
 
 ### General code cleaning 
-alias whitespaceassassin="ex +'bufdo!%s/\s\+$//' -scx *.*"
+alias whitespaceassassin="ex +'bufdo!%s/\s\+$//' -scxa *.*"
   # Regex:
   #  % | every line
   #  s | substitute
