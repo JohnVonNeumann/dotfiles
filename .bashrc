@@ -116,6 +116,9 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# enable bash_profile envvars to be used
+source ~/.bash_profile
+
 #####################################################################################
 
 #######################################
@@ -173,6 +176,9 @@ alias whitespaceassassin="ex +'bufdo!%s/\s\+$//' -scx *.*"
   # -s | silent mode
   # -c | command, i think, docs are shaky, doesnt work without 
   # -x | use encryption, doesnt seem to work without it, hangs
+
+### accessing hosted services ###
+alias database="psql --host=$DB_HOST --port=$DB_PORT --username=$DB_USERNAME --dbname=$DB_NAME"
 
 ### git aliases ###
 alias gitremoveallmergedlocals="git branch --merged | egrep -v '(^\*|master|dev)' | xargs git branch -d"
