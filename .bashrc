@@ -129,6 +129,7 @@ source ~/.bash_profile
 export BACKEND_REPO=~/code/work/travel_analytics
 export FRONTEND_REPO=~/code/work/frontend
 export INFRA_REPO=~/code/work/infrastructure
+export SSH_DIR=~/.ssh
 
 ### ansible related shortcut/functions ###
 avedit () {
@@ -179,6 +180,7 @@ alias whitespaceassassin="ex +'bufdo!%s/\s\+$//' -scx *.*"
 
 ### accessing hosted services ###
 alias database="psql --host=$DB_HOST --port=$DB_PORT --username=$DB_USERNAME --dbname=$DB_NAME"
+alias webserver="ssh -i $SSH_DIR/$WEBSERVER_SSH_KEY $WEBSERVER_SSH_USER@$WEBSERVER_IP" 
 
 ### git aliases ###
 alias gitremoveallmergedlocals="git branch --merged | egrep -v '(^\*|master|dev)' | xargs git branch -d"
