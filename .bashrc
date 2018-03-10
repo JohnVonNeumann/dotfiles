@@ -162,6 +162,13 @@ packagemelikeoneofyourfrenchgirls () {
   cp -r dist/ $BACKEND_REPO/backend 
 }
 
+### development environment
+localdevenv () {
+  $(packagemelikeoneofyourfrenchgirls)
+  cd $BACKEND_REPO/backend
+  uwsgi --ini uwsgi.ini
+}
+
 ### General code cleaning 
 alias whitespaceassassin="ex +'bufdo!%s/\s\+$//' -scxa *.*"
   # Regex:
