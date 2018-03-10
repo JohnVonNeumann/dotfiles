@@ -123,9 +123,9 @@ fi
 #######################################
 
 ### Useful file locations
-# TODO refactor aliases and other funcs to utilise these vars
 export BACKEND_REPO=~/code/work/travel_analytics
 export FRONTEND_REPO=~/code/work/frontend
+export INFRA_REPO=~/code/work/infrastructure
 
 ### ansible related shortcut/functions ###
 avedit () {
@@ -142,7 +142,7 @@ apb () {
 
 ### yamllinting function for non-annoying parsing of config
 yl () {
-  yamllint -c ~/code/work/infrastructure/.yamllint $1
+  yamllint -c $INFRA_REPO/.yamllint $1
 }
 
 ### Random system functions, not all of which are written by me
@@ -167,25 +167,25 @@ alias whitespaceassassin="ex +'bufdo!%s/\s\+$//' -scx *.*"
   # \+ | one or more 
   #  $ | to end of file
   # // | replace with nothing
+  # Ex:
   # :help Ex is a mode of vim that provides extra cmd line processing
   #  + | command following will be exec'd after first file is read
   # -s | silent mode
   # -c | command, i think, docs are shaky, doesnt work without 
   # -x | use encryption, doesnt seem to work without it, hangs
 
-
 ### git aliases ###
 alias gitremoveallmergedlocals="git branch --merged | egrep -v '(^\*|master|dev)' | xargs git branch -d"
 
 ### Useful filesystem/project aliases ###
-alias lsprocessroles="ls ~/code/work/infrastructure/ansible/roles/process/aws/"
-alias lsgenericroles="ls ~/code/work/infrastructure/ansible/roles/generic/aws/"
-alias cdbackend="cd /home/lw/code/work/travel_analytics"
-alias cdfrontend="cd /home/lw/code/work/frontend"
-alias cdansible="cd /home/lw/code/work/infrastructure/ansible"
-alias cdinfra="cd /home/lw/code/work/infrastructure"
-alias cdprocessroles="cd /home/lw/code/work/infrastructure/ansible/roles/process && ls"
-alias cdgenericroles="cd /home/lw/code/work/infrastructure/ansible/roles/generic && ls" 
+alias lsprocessroles="ls $INFRA_REPO/ansible/roles/process/aws/"
+alias lsgenericroles="ls $INFRA_REPO/ansible/roles/generic/aws/"
+alias cdbackend="cd $BACKEND_REPO"
+alias cdfrontend="cd $FRONTEND_REPO"
+alias cdansible="cd $INFRA_REPO/ansible"
+alias cdinfra="cd $INFRA_REPO"
+alias cdprocessroles="cd $INFRA_REPO/ansible/roles/process && ls"
+alias cdgenericroles="cd $INFRA_REPO/ansible/roles/generic && ls" 
 
 ### bash/terminal aliases ###
 # xclip is apt installed, provides an easy access point to the x clipboard
