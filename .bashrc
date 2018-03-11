@@ -191,6 +191,7 @@ alias webserver="ssh -i $SSH_DIR/$WEBSERVER_SSH_KEY $WEBSERVER_SSH_USER@$WEBSERV
 
 ### git aliases ###
 alias gitremoveallmergedlocals="git branch --merged | egrep -v '(^\*|master|dev)' | xargs git branch -d"
+alias gitpersonal="git config user.name $GIT_PERSONAL_NAME && git config user.email $GIT_PERSONAL_EMAIL"
 
 ### Useful filesystem/project aliases ###
 alias lsprocessroles="ls $INFRA_REPO/ansible/roles/process/aws/"
