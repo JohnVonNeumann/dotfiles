@@ -126,6 +126,7 @@ source ~/.bash_profile
 #######################################
 
 ### Useful file locations
+export OPENSOURCE_REPO=~/code/open_source
 export BACKEND_REPO=~/code/work/travel_analytics
 export FRONTEND_REPO=~/code/work/frontend
 export INFRA_REPO=~/code/work/infrastructure
@@ -196,6 +197,7 @@ alias gitpersonal="git config user.name $GIT_PERSONAL_NAME && git config user.em
 ### Useful filesystem/project aliases ###
 alias lsprocessroles="ls $INFRA_REPO/ansible/roles/process/aws/"
 alias lsgenericroles="ls $INFRA_REPO/ansible/roles/generic/aws/"
+alias cdopensource="cd $OPENSOURCE_REPO"
 alias cdbackend="cd $BACKEND_REPO"
 alias cdfrontend="cd $FRONTEND_REPO"
 alias cdansible="cd $INFRA_REPO/ansible"
