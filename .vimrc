@@ -1,3 +1,7 @@
+" General Settings {{{
+set filetype=on
+" }}}
+
 " UI Config {{{
 set number                                   "show line numbers
 set showcmd                                  "show command in bottom bar
@@ -20,6 +24,10 @@ set softtabstop=4                            "number of spaces in tab when editi
 set smartindent                              "autoindent to last level of code
 " }}}
 
+" {{{ filetype specific settings
+autocmd FileType json setlocal shiftwidth=2 tabstop=2
+" }}}
+"
 " Ansible-Vim settings {{{
 let g:ansible_unindent_after_newline = 1     "unindents to base left marg on double enter
 " }}}
@@ -43,6 +51,7 @@ Plug 'davidhalter/jedi-vim'
 Plug 'tpope/vim-fugitive'                    " Git wrapper for vim
 Plug 'pearofducks/ansible-vim'               " Ansible Vim
 Plug 'posva/vim-vue'                         " syntax highlighting for vue
+Plug 'elzr/vim-json'                         " Json helper
 call plug#end()
 " }}}
 
