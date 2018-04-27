@@ -1,5 +1,8 @@
 " General Settings {{{
 set filetype=on
+set hidden                                   "hide unsaved buffers instead of 
+                                             "closing them, so we can do
+                                             ":argdo without pain
 " }}}
 
 " UI Config {{{
