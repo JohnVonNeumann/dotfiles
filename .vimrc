@@ -3,6 +3,8 @@ set filetype=on
 set hidden                                   "hide unsaved buffers instead of 
                                              "closing them, so we can do
                                              ":argdo without pain
+let mapleader=","                            "changes the default leader key from / to ,
+                                             "so commands can be run with ,{key}
 " }}}
 
 " UI Config {{{
@@ -16,8 +18,8 @@ set showmatch                                "highlight matching parentheses
 " Search {{{
 set incsearch                                "search as chars are entered
 set hlsearch                                 "highlight search matches
-let mapleader=","                           
 nnoremap <leader><space> :nohlsearch <CR>
+                                             "<,.> removes all hightlighting 
 " }}} 
 
 " Spaces V Tabs {{{
@@ -27,10 +29,15 @@ set softtabstop=4                            "number of spaces in tab when editi
 set smartindent                              "autoindent to last level of code
 " }}}
 
-" {{{ filetype specific settings
+" {{{ json specific settings
 autocmd FileType json setlocal shiftwidth=2 tabstop=2
 " }}}
-"
+
+" {{{ python specific settings
+au FileType python map <silent> <leader>b oimport pdb; pdb.set_trace()<esc>
+au FileType python map <silent> <leader>B Oimport pdb; pdb.set_trace()<esc>
+" }}}
+
 " Ansible-Vim settings {{{
 let g:ansible_unindent_after_newline = 1     "unindents to base left marg on double enter
 " }}}
