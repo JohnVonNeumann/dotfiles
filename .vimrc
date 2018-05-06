@@ -34,8 +34,8 @@ autocmd FileType json setlocal shiftwidth=2 tabstop=2
 " }}}
 
 " {{{ python specific settings
-au FileType python map <silent> <leader>b oimport pdb; pdb.set_trace()<esc>
-au FileType python map <silent> <leader>B Oimport pdb; pdb.set_trace()<esc>
+autocmd FileType python map <silent> <leader>b oimport pdb; pdb.set_trace()<esc>
+autocmd FileType python map <silent> <leader>B Oimport pdb; pdb.set_trace()<esc>
 " }}}
 
 " Ansible-Vim settings {{{
