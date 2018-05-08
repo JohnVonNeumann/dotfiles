@@ -17,8 +17,8 @@
     [[[child1]]]
       order = 0
       parent = child0
-      position = 834
-      ratio = 0.451212938005
+      position = 844
+      ratio = 0.456603773585
       type = HPaned
     [[[child3]]]
       order = 1
