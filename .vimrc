@@ -7,7 +7,13 @@ let mapleader=","                  "changes the default leader key from / to ,
                                    "so commands can be run with ,{key}
 " }}}
 
-" UI Config {{{
+" Folding {{{
+set foldmethod=marker                 "will fold vimrc by markers, only vimfiles
+highlight Folded ctermfg=Black        "set fold's text to black
+highlight Folded ctermbg=Magenta      "set fold's background to magenta
+" }}}
+
+"UI Config {{{
 set number                           "show line numbers
 set colorcolumn=81                   "sets a column at 80 chars
 highlight ColorColumn ctermbg=1*     "sets column colour to red
