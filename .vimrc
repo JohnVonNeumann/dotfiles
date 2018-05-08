@@ -52,6 +52,14 @@ let g:ansible_unindent_after_newline = 1     "unindents to base left marg on dou
 
 " Vim Plug {{{
 call plug#begin('~/.vim/plugged')
+"if has('nvim')
+"  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"else
+"  Plug 'Shougo/deoplete.nvim'
+"  Plug 'roxma/nvim-yarp'
+"  Plug 'roxma/vim-hug-neovim-rpc'
+"endif
+let g:deoplete#enable_at_startup = 1
 Plug 'nvie/vim-flake8'                       " Perhaps redundant with python-mode included
 Plug 'yggdroot/indentline'                   " indentation indicator support
 Plug 'vim-airline/vim-airline'               " bottom status barring, for a more ide feel
