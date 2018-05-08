@@ -1,34 +1,33 @@
 " General Settings {{{
-set filetype=on
-set hidden                                   "hide unsaved buffers instead of 
-                                             "closing them, so we can do
-                                             ":argdo without pain
-let mapleader=","                            "changes the default leader key from / to ,
-                                             "so commands can be run with ,{key}
+set filetype=on                    "enable filetype detection for autocmd 
+set hidden                         ""hide unsaved buffers instead of 
+                                   ""closing them, so we can do
+                                   "":argdo without pain
+let mapleader=","                  "changes the default leader key from / to ,
+                                   "so commands can be run with ,{key}
 " }}}
 
 " UI Config {{{
-set number                                   "show line numbers
-set colorcolumn=81                           "sets a column at 80 chars
-highlight ColorColumn ctermbg=1*             "sets column colour to red
-set showcmd                                  "show command in bottom bar
-set cursorline                               "highlight current line
-set wildmenu                                 "visual autocomplete for command menu
-set showmatch                                "highlight matching parentheses
+set number                           "show line numbers
+set colorcolumn=81                   "sets a column at 80 chars
+highlight ColorColumn ctermbg=1*     "sets column colour to red
+set showcmd                          "show command in bottom bar
+set cursorline                       "highlight current line
+set wildmenu                         "visual autocomplete for command menu
+set showmatch                        "highlight matching parentheses
 " }}}
 
 " Search {{{
 set incsearch                                "search as chars are entered
 set hlsearch                                 "highlight search matches
-nnoremap <leader><space> :nohlsearch <CR>
-                                             "<,.> removes all hightlighting 
+nnoremap <leader><space> :nohlsearch <CR>    "<,.> removes all hightlighting 
 " }}} 
 
 " Spaces V Tabs {{{
-set tabstop=4                                "4 space tab
-set expandtab                                "use spaces for tabs
-set softtabstop=4                            "number of spaces in tab when editing
-set smartindent                              "autoindent to last level of code
+set tabstop=4                   "4 space tab
+set expandtab                   "use spaces for tabs
+set softtabstop=4               "number of spaces in tab when editing
+set smartindent                 "autoindent to last level of code
 " }}}
 
 " {{{ json specific settings
@@ -41,7 +40,7 @@ autocmd FileType python map <silent> <leader>B Oimport pdb; pdb.set_trace()<esc>
 " }}}
 
 " Ansible-Vim settings {{{
-let g:ansible_unindent_after_newline = 1     "unindents to base left marg on double enter
+let g:ansible_unindent_after_newline = 1    "indent as new node on double enter
 " }}}
 
 " Deoplete settings {{{
@@ -67,16 +66,15 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
-Plug 'nvie/vim-flake8'                       " Perhaps redundant with python-mode included
-Plug 'yggdroot/indentline'                   " indentation indicator support
-Plug 'vim-airline/vim-airline'               " bottom status barring, for a more ide feel
-Plug 'ervandew/supertab'
-Plug 'davidhalter/jedi-vim'
-    " <Ctrl-Space> to enable autocomplete
-Plug 'tpope/vim-fugitive'                    " Git wrapper for vim
-Plug 'pearofducks/ansible-vim'               " Ansible Vim
-Plug 'posva/vim-vue'                         " syntax highlighting for vue
-Plug 'elzr/vim-json'                         " Json helper
+Plug 'nvie/vim-flake8'             " Perhaps redundant with python-mode included
+Plug 'yggdroot/indentline'         " indentation indicator support
+Plug 'vim-airline/vim-airline'     " bottom status barring, for a more ide feel
+Plug 'ervandew/supertab'           " use <Tab> to select autocomplete choices
+Plug 'davidhalter/jedi-vim'        " <Ctrl-Space> to enable autocomplete
+Plug 'tpope/vim-fugitive'          " Git wrapper for vim
+Plug 'pearofducks/ansible-vim'     " Ansible Vim
+Plug 'posva/vim-vue'               " syntax highlighting for vue
+Plug 'elzr/vim-json'               " Json helper
 call plug#end()
 " }}}
 
