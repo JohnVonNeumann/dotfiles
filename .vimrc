@@ -9,8 +9,8 @@ let mapleader=","                            "changes the default leader key fro
 
 " UI Config {{{
 set number                                   "show line numbers
-set colorcolumn=80
-highlight ColorColumn ctermbg=1*
+set colorcolumn=81                           "sets a column at 80 chars
+highlight ColorColumn ctermbg=1*             "sets column colour to red
 set showcmd                                  "show command in bottom bar
 set cursorline                               "highlight current line
 set wildmenu                                 "visual autocomplete for command menu
