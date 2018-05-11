@@ -202,6 +202,7 @@ alias cdbackend="cd $BACKEND_REPO"
 alias cdfrontend="cd $FRONTEND_REPO"
 alias cdansible="cd $INFRA_REPO/ansible"
 alias cdinfra="cd $INFRA_REPO"
+alias cdssh="cd $SSH_DIR"
 alias cdprocessroles="cd $INFRA_REPO/ansible/roles/process && ls"
 alias cdgenericroles="cd $INFRA_REPO/ansible/roles/generic && ls" 
 
