@@ -81,6 +81,7 @@ Plug 'tpope/vim-fugitive'          " Git wrapper for vim
 Plug 'pearofducks/ansible-vim'     " Ansible Vim
 Plug 'posva/vim-vue'               " syntax highlighting for vue
 Plug 'elzr/vim-json'               " Json helper
+Plug 'digitalrounin/vim-yaml-folds'  " Help with folding in YAML
 call plug#end()
 " }}}
 
