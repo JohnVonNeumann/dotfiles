@@ -1,4 +1,5 @@
 " General Settings {{{
+set guicursor=
 set filetype=on                    "enable filetype detection for autocmd 
 set hidden                         ""hide unsaved buffers instead of 
                                    ""closing them, so we can do
