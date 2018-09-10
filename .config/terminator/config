@@ -1,17 +1,15 @@
 [global_config]
-  title_font = Sans 13
+  window_state = fullscreen
 [keybindings]
 [layouts]
   [[default]]
     [[[child0]]]
-      fullscreen = False
       last_active_term = 68e86ca5-7124-47d3-9c7b-802eb20fd98f
       last_active_window = True
       maximised = True
       order = 0
       parent = ""
       position = 65:24
-      size = 1855, 1056
       title = lw@RobertOppenheimer: ~
       type = Window
     [[[child1]]]
@@ -48,6 +46,6 @@
 [profiles]
   [[default]]
     background_image = None
-    font = Monospace 12
+    font = Monospace 9.5
     scrollback_lines = 4000
     use_system_font = False
