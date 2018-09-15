@@ -17,14 +17,21 @@ if [ -x "/usr/bin/weechat" ]
       if diff_output=$(diff $WEECHAT_DIR/$each $PWD/weechat/$each)
         then
           # Use printf for cleaner colour formatting than echo
-          printf "\e[32m Weechat $each: No changes to be made."
+          printf "\e[32m Weechat $each - No changes to be made."
           # reset the colour back to normal, otherwise to it continue
           echo -e "\033[0m"
         else
-          printf "\e[31m Weechat $each: Changes to be made."
-          echo "" 
+          printf "\e[31m Weechat $each - Changes to be made:"
+          echo 
           echo $diff_output
           echo -e "\033[0m"
+          printf "\e[33m" 
+          read -p " You're about to overwrite a file. Are you sure? " -n 1 -r
+          echo 
+          if [[ $REPLY =~ ^[Yy]$ ]]
+          then
+            echo "Heaps of dangerous shit"
+          fi
       fi
     done
   else
