@@ -26,7 +26,7 @@ if [ -x "/usr/bin/weechat" ]
           echo $diff_output
           echo -e "\033[0m"
           printf "\e[33m" 
-          read -p " You're about to overwrite a file. Are you sure? " -n 1 -r
+          read -p " You're about to overwrite $each. Are you sure? " -n 1 -r
           echo 
           if [[ $REPLY =~ ^[Yy]$ ]]
           then
