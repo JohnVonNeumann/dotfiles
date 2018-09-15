@@ -13,12 +13,33 @@ WEECHAT_DIR=~/.weechat
 
 if [ -x "/usr/bin/weechat" ] 
     then
-        if diff $WEECHAT_DIR/irc.conf $PWD/weechat/irc.conf >/dev/null
-            then
-                echo "Weechat: No change to be made."
-            else
-                sudo ln -sf $PWD/weechat/irc.conf ~/.weechat/irc.conf
-        fi
+        for each in $( ls $PWD/weechat/ ); do
+            if diff $WEECHAT_DIR/$each $PWD/weechat/$each
+                then
+                    # Use printf for cleaner colour formatting than echo
+                    printf "\e[32m Weechat $each: No changes to be made."
+                    # reset the colour back to normal, otherwise to it continue
+                    echo -e "\033[0m"
+                else
+                    printf "\e[31m Weechat $each: Changes to be made."
+                    echo -e "\033[0m"
+            fi
+            echo $PWD/weechat/$each
+        done
     else
         echo "Weechat: Not installed. Use Ansible playbooks."
 fi
+#if [ -x "/usr/bin/weechat" ] 
+#    then
+#        for each in $( ls $PWD/weechat/ ); do
+#            if diff $WEECHAT_DIR/$each $PWD/weechat/$each >/dev/null
+#                then
+#                    echo "Weechat: No change to be made."
+#                else
+#                    sudo ln -sf $PWD/weechat/$each ~/.weechat/$each
+#            fi
+#            echo $PWD/weechat/$each
+#        done
+#    else
+#        echo "Weechat: Not installed. Use Ansible playbooks."
+#fi
