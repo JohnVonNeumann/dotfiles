@@ -14,7 +14,7 @@ WEECHAT_DIR=~/.weechat
 if [ -x "/usr/bin/weechat" ] 
     then
         for each in $( ls $PWD/weechat/ ); do
-            if diff $WEECHAT_DIR/$each $PWD/weechat/$each
+            if diff_output=$(diff $WEECHAT_DIR/$each $PWD/weechat/$each)
                 then
                     # Use printf for cleaner colour formatting than echo
                     printf "\e[32m Weechat $each: No changes to be made."
@@ -22,9 +22,10 @@ if [ -x "/usr/bin/weechat" ]
                     echo -e "\033[0m"
                 else
                     printf "\e[31m Weechat $each: Changes to be made."
+                    echo "" 
+                    echo $diff_output
                     echo -e "\033[0m"
             fi
-            echo $PWD/weechat/$each
         done
     else
         echo "Weechat: Not installed. Use Ansible playbooks."
