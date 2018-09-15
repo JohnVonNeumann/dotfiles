@@ -30,7 +30,7 @@ if [ -x "/usr/bin/weechat" ]
           echo 
           if [[ $REPLY =~ ^[Yy]$ ]]
           then
-            echo "Heaps of dangerous shit"
+            sudo ln -sf $PWD/weechat/$each ~/.weechat/$each
           fi
       fi
     done
@@ -44,7 +44,6 @@ fi
 #                then
 #                    echo "Weechat: No change to be made."
 #                else
-#                    sudo ln -sf $PWD/weechat/$each ~/.weechat/$each
 #            fi
 #            echo $PWD/weechat/$each
 #        done
