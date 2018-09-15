@@ -37,16 +37,3 @@ if [ -x "/usr/bin/weechat" ]
   else
     echo "Weechat: Not installed. Use Ansible playbooks."
 fi
-#if [ -x "/usr/bin/weechat" ] 
-#    then
-#        for each in $( ls $PWD/weechat/ ); do
-#            if diff $WEECHAT_DIR/$each $PWD/weechat/$each >/dev/null
-#                then
-#                    echo "Weechat: No change to be made."
-#                else
-#            fi
-#            echo $PWD/weechat/$each
-#        done
-#    else
-#        echo "Weechat: Not installed. Use Ansible playbooks."
-#fi
