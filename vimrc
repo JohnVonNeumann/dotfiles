@@ -41,9 +41,17 @@ set smartindent                 "autoindent to last level of code
 autocmd FileType json setlocal shiftwidth=2 tabstop=2
 " }}}
 
+" {{{ yaml specific settings
+autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
+" }}}
+
 " {{{ python specific settings
 autocmd FileType python map <silent> <leader>b oimport pdb; pdb.set_trace()<esc>
 autocmd FileType python map <silent> <leader>B Oimport pdb; pdb.set_trace()<esc>
+" }}}
+
+" {{{ c specific settings
+autocmd FileType c setlocal shiftwidth=4 tabstop=4
 " }}}
 
 " Ansible-Vim settings {{{
@@ -63,7 +71,7 @@ let g:deoplete#enable_at_startup = 1
 " }}}
 
 " Vim Plug {{{
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.vim/autoload')
 if has('nvim')
   " auto suggestion for python
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
