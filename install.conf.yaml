@@ -7,7 +7,6 @@
 - link:
     ~/.weechat_backup: 
       path: weechat
-      glob: true
       force: true
   #~/.dotfiles: ''
   # ~/.vimrc: vimrc
