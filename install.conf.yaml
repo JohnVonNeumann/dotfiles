@@ -1,3 +1,6 @@
+# Reference Documentation for dotbot usage, what we use to manage our dotfiles
+# https://github.com/anishathalye/dotbot
+
 - defaults:
     link:
       relink: true
