@@ -5,7 +5,7 @@
 - clean: ['~']
 
 - link:
-    ~/.weechat_backup: 
+    ~/.weechat: 
       path: weechat
       force: true
   #~/.dotfiles: ''
