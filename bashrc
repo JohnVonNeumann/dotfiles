@@ -230,3 +230,6 @@ alias vim="nvim"
 
 ### Add /programs to PATH ###
 export PATH="$PATH:$HOME/programs"
+
+### Enable superuser bin finding
+PATH=$PATH:/usr/sbin:/sbin
