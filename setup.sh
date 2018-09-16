@@ -13,7 +13,3 @@ sudo apt-get update -y
 sudo apt-get install neovim -y
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-cp .config/terminator/config ~/.config/terminator
-cp .vimrc ~/.vimrc
-touch ~/.bash_profile
-cp .bashrc ~/.bashrc
