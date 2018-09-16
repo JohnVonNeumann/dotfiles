@@ -17,6 +17,9 @@
     ~/.config/terminator:
       path: config/terminator
       force: true
+    ~/.bashrc:
+      path: bashrc
+      force: true
 
 
 - shell:
