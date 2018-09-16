@@ -2,7 +2,14 @@
 
 Gaze upon thine dotfiles, a miraculous world of configuration, which can be used to rapidly bring a host upto speed, making it feel like home, a home filled with your favourite family members, good beer and a damned good time. 
 
-## Thoughts for times of implementation, not slightly-drunk planning
-* Keep all dotfiles in the central repository, symlink back to the location required for the application to ingest the configs, even better, change the applications to pull the configurations directly from the central ldotifles directory!
+## Using the repository
+1. Use the [larry-wall repository](https://github.com/JohnVonNeumann/larry-wall) to do the initial setup of your host, this will ensure the relevant packages/software that you wish to configure, are actually installed.
+2. After cloning this repository, run the `./setup.sh` bash script, which will install neovim and configure it. I'm looking for a cleaner way to do this.
+3. Run `./install` which will do the needful on the rest of your files.
+4. ????
+5. Profit
 
-* Generate a decent bash script that checks for the existence of applications/programs BEFORE running, this way, you handle errors safely. Throw warnings to user to indicate that they should run relevant ansible playbooks to install the required software, before clusterfucking your config.
+## Thoughts for times of implementation, not slightly-drunk planning
+
+* Move all possible configurations into this repository, more than likely a slow process.
+* Nerf the `setup.sh` script into something nicer, I haven't put my thought into this yet. Will get it eventually.
