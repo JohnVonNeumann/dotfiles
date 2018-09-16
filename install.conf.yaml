@@ -1,0 +1,18 @@
+- defaults:
+    link:
+      relink: true
+
+- clean: ['~']
+
+- link:
+    ~/.weechat_backup: 
+      path: weechat
+      glob: true
+      force: true
+  #~/.dotfiles: ''
+  # ~/.vimrc: vimrc
+  # ~/.config/awesome: awesome/
+
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
