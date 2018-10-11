@@ -13,3 +13,6 @@ Gaze upon thine dotfiles, a miraculous world of configuration, which can be used
 
 * Move all possible configurations into this repository, more than likely a slow process.
 * Nerf the `setup.sh` script into something nicer, I haven't put my thought into this yet. Will get it eventually.
+
+## Bits and pieces of thought as I've been writing recently
+* I may not need `setup.sh` I could potentially just try and find modules within Ansible for much of the `macos/brew` based installs, along with `rhel/yum`. May want to look into this, as I shouldn't be writing script for everything just because `neovim` on `ubuntu` can be a pain to install. 
