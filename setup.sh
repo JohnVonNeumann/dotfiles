@@ -1,7 +1,6 @@
 #!/bin/bash
 # I don't think I've written these `elifs` correctly, I suspect the entire point of an `elif` is
-# to not contain a second else
-
+# to not contain a second else 
 mkdir ~/.config/nvim
 touch ~/.config/nvim/init.vim
 cat <<EOF > ~/.config/nvim/init.vim
@@ -17,7 +16,7 @@ if [ -f /etc/os-release ]; then
 		echo "blah"
 		# install heaps of neovim stuff
 		yum -y install epel-release
-		curl -o /etc/yum.repos.d/dperson-neovim-epel-7.repo https://copr.fedorainfracloud.org/coprs/dperson/neovim/repo/epel-7/dperson-neovim-epel-7.repo 
+		curl -o /etc/yum.repos.d/dperson-neovim-epel-7.repo https://copr.fedorainfracloud.org/coprs/dperson/neovim/repo/epel-7/dperson-neovim-epel-7.repo
 		yum -y install neovim
 	else
 		echo "Yum is not installed."
@@ -31,11 +30,11 @@ elif type lsb_release >/dev/null 2>&1; then
 		# do the same process for ubuntu/debian based stuff"
 		sudo apt-get install python-dev python-pip python3-dev python3-pip -y
 		sudo apt-add-repository ppa:neovim-ppa/stable -y
-		sudo apt-get update -y 
+		sudo apt-get update -y
 		sudo apt-get install neovim -y
 		curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 		    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	else 
+	else
 		echo "Apt is not installed. Perhaps the original ID was incorrect."
 	fi
 else
@@ -51,3 +50,10 @@ elif [[ `echo $OSTYPE` =~ "darwin" ]]; then
 else
 	echo "Not MacOS"
 fi
+
+
+# somewhere in all of this, identification of either vim or neovim requires
+# the installation of vimplug, and this is different for both vim and neovim,
+# with different install paths for each.
+# follow https://github.com/junegunn/vim-plug#installtion for each
+# script it in
