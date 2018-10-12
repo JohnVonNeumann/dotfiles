@@ -116,8 +116,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# commented out and got bash_profile source working, basically this was 
+# supplying a circular reference, recommend using `source ~/.envvars`
+# or something of the like if this is needed
 # enable bash_profile envvars to be used
-source ~/.bash_profile
+# source ~/.bash_profile
 
 #####################################################################################
 
