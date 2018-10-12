@@ -141,7 +141,7 @@ if [ -x "$(command -v ansible-vault)" ]; then
   }
   apb () {
    ansible-playbook $1 --ask-vault-pass
-  } 
+  }
 fi
 
 ### yamllinting function for non-annoying parsing of config
@@ -156,20 +156,20 @@ wifi_strength () {
   watch -n 1 "awk 'NR==3 {print \"WiFi Signal Strength = \" \$3 \"00 %\"}''' /proc/net/wireless"
 }
 
-### General code cleaning 
+### General code cleaning
 alias whitespaceassassin="ex +'bufdo!%s/\s\+$//' -scxa *.*"
   # Regex:
   #  % | every line
   #  s | substitute
   # \s | whitespace char
-  # \+ | one or more 
+  # \+ | one or more
   #  $ | to end of file
   # // | replace with nothing
   # Ex:
   # :help Ex is a mode of vim that provides extra cmd line processing
   #  + | command following will be exec'd after first file is read
   # -s | silent mode
-  # -c | command, i think, docs are shaky, doesnt work without 
+  # -c | command, i think, docs are shaky, doesnt work without
   # -x | use encryption, doesnt seem to work without it, hangs
 
 ### git aliases ###
@@ -182,11 +182,14 @@ alias cdssh="cd $SSH_DIR"
 
 ### bash/terminal aliases ###
 # xclip is apt installed, provides an easy access point to the x clipboard
+# xclip requires x11, therefore it's not gonna work on MacOS because no x11
+# so this should do a system/os id check before running, need a function to
+# id this, possibly already written via setup.sh 
 alias c="xclip"        # eg: $ pwd | c
 alias p="xclip -o"     # eg: cd `p`
 
 ### python project aliases ###
-alias deact="deactivate" 
+alias deact="deactivate"
 
 ### aws ###
 complete -C '/usr/bin/aws_completer' aws
