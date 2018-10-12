@@ -126,48 +126,34 @@ source ~/.bash_profile
 #######################################
 
 ### Useful file locations
-export OPENSOURCE_REPO=~/code/open_source
-export BACKEND_REPO=~/code/work/travel_analytics
-export FRONTEND_REPO=~/code/work/frontend
-export INFRA_REPO=~/code/work/infrastructure
 export SSH_DIR=~/.ssh
 
 ### ansible related shortcut/functions ###
-avedit () {
-  ansible-vault edit $1
-}
-
-avview () {
-  ansible-vault view $1
-}
-
-apb () {
- ansible-playbook $1 --ask-vault-pass
-} 
+# command -v syntax is preferred as it is internal shell functionality and doesn't
+# require external procs to be forkandexec'd to check the existence of files/exe's
+# in this case, the external proc we are talking about is `which "command"`
+if [ -x "$(command -v ansible-vault)" ]; then
+  avedit () {
+    ansible-vault edit $1
+  }
+  avview () {
+    ansible-vault view $1
+  }
+  apb () {
+   ansible-playbook $1 --ask-vault-pass
+  } 
+fi
 
 ### yamllinting function for non-annoying parsing of config
-yl () {
-  yamllint -c $INFRA_REPO/.yamllint $1
-}
+if [ -x "$(command -v yamllint)" ]; then
+  yl () {
+    yamllint -c $INFRA_REPO/.yamllint $1
+  }
+fi
 
 ### Random system functions, not all of which are written by me
 wifi_strength () {
   watch -n 1 "awk 'NR==3 {print \"WiFi Signal Strength = \" \$3 \"00 %\"}''' /proc/net/wireless"
-}
-
-### lazy js dist packaging, i could learn a tool lol
-packagemelikeoneofyourfrenchgirls () {
-  cd $FRONTEND_REPO
-  npm install
-  npm run build
-  cp -r dist/ $BACKEND_REPO/backend 
-}
-
-### development environment
-localdevenv () {
-  $(packagemelikeoneofyourfrenchgirls)
-  cd $BACKEND_REPO/backend
-  uwsgi --ini uwsgi.ini
 }
 
 ### General code cleaning 
@@ -186,25 +172,13 @@ alias whitespaceassassin="ex +'bufdo!%s/\s\+$//' -scxa *.*"
   # -c | command, i think, docs are shaky, doesnt work without 
   # -x | use encryption, doesnt seem to work without it, hangs
 
-### accessing hosted services ###
-alias database="psql --host=$DB_HOST --port=$DB_PORT --username=$DB_USERNAME --dbname=$DB_NAME"
-alias webserver="ssh -i $SSH_DIR/$WEBSERVER_SSH_KEY $WEBSERVER_SSH_USER@$WEBSERVER_IP" 
-
 ### git aliases ###
 alias gitremoveallmergedlocals="git branch --merged | egrep -v '(^\*|master|dev)' | xargs git branch -d"
 alias gitpersonal="git config user.name $GIT_PERSONAL_NAME && git config user.email $GIT_PERSONAL_EMAIL"
 
 ### Useful filesystem/project aliases ###
-alias lsprocessroles="ls $INFRA_REPO/ansible/roles/process/aws/"
-alias lsgenericroles="ls $INFRA_REPO/ansible/roles/generic/aws/"
 alias cdopensource="cd $OPENSOURCE_REPO"
-alias cdbackend="cd $BACKEND_REPO"
-alias cdfrontend="cd $FRONTEND_REPO"
-alias cdansible="cd $INFRA_REPO/ansible"
-alias cdinfra="cd $INFRA_REPO"
 alias cdssh="cd $SSH_DIR"
-alias cdprocessroles="cd $INFRA_REPO/ansible/roles/process && ls"
-alias cdgenericroles="cd $INFRA_REPO/ansible/roles/generic && ls" 
 
 ### bash/terminal aliases ###
 # xclip is apt installed, provides an easy access point to the x clipboard
@@ -212,21 +186,24 @@ alias c="xclip"        # eg: $ pwd | c
 alias p="xclip -o"     # eg: cd `p`
 
 ### python project aliases ###
-alias lintmelikeoneofyourfrenchgirls="pylint --rcfile=conf/pylint.conf backend"
 alias deact="deactivate" 
 
 ### aws ###
 complete -C '/usr/bin/aws_completer' aws
 
 ### MIT Scheme Edwin ###
-alias edwin="mit-scheme --edit"
+if [ -x "$( command -v mit-scheme)" ]; then
+  alias edwin="mit-scheme --edit"
+fi
 
 ### Venv Management ###
-export PYTHONPATH=.
-source /usr/local/bin/activate.sh
+#export PYTHONPATH=.
+#source /usr/local/bin/activate.sh
 
 ### Vim to Nvim ###
-alias vim="nvim"
+if [ -x "$( command -v nvim )" ]; then
+  alias vim="nvim"
+fi
 
 ### Add /programs to PATH ###
 export PATH="$PATH:$HOME/programs"
