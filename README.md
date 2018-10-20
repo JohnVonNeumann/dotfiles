@@ -1,5 +1,7 @@
 # dotfiles
 
+[![Build Status](https://travis-ci.org/JohnVonNeumann/dotfiles.svg?branch=master)](https://travis-ci.org/JohnVonNeumann/dotfiles)
+
 Gaze upon thine dotfiles, a miraculous world of configuration, which can be used to rapidly bring a host upto speed, making it feel like home, a home filled with your favourite family members, good beer and a damned good time.
 
 ## Using the repository
