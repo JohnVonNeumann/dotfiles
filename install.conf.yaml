@@ -8,10 +8,10 @@
 - clean: ['~']
 
 - link:
-    ~/.weechat: 
+    ~/.weechat:
       path: weechat
       force: true
-    ~/.vimrc: 
+    ~/.vimrc:
       path: vimrc
       force: true
     ~/.config/awesome:
