@@ -1,6 +1,13 @@
 language: shell
+
 sudo: false
-script:
-  - bash -c 'shopt -s globstar; shellcheck *.sh'
+
+install:
   - gem install mdl
-  - mdl .
+    
+jobs:
+  include:
+    - stage: bash linting
+      script: bash -c 'shopt -s globstar; shellcheck *.sh'
+    - stage: markdown linting
+      script: mdl 
