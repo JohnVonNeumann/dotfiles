@@ -61,6 +61,11 @@ elif [[ `echo $MACHTYPE` =~ "darwin" ]]; then
         # then finally, run a PlugInstall to install the contents of vimrcs 
         # plugin entry list
         # https://stackoverflow.com/questions/13522599/how-to-run-vim-commands-from-terminal
+        # in order to get support for deoplete you much also run
+        # `pip3 install neovim` for some reason i don't know why however this
+        # can most likely be bundled in with the command set above and run from
+        # inside vim
+        # https://github.com/Shougo/deoplete.nvim/issues/727
 	else
 		echo "Brew is not installed. Installing."
         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
