@@ -1,5 +1,7 @@
 " General Settings {{{
 set guicursor=
+set backspace=indent,eol,start     "had a situation where my vim backspace broke
+                                   ""so this is the solution
 set filetype=on                    "enable filetype detection for autocmd 
 set hidden                         ""hide unsaved buffers instead of 
                                    ""closing them, so we can do
