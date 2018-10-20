@@ -9,9 +9,9 @@ cat <<EOF > ~/.config/nvim/init.vim
     source ~/.vimrc
 EOF
 if [ -f /etc/os-release ]; then
-	echo "/etc/os-release found!"
+	techo "/etc/os-release found!"
 	echo "Most likely based on Yum package manager."
-	if [ `which yum` ]; then
+	if [ "$(which yum)" ]; then
 		echo "Yum is installed."
 		echo "blah"
 		# install heaps of neovim stuff
@@ -24,7 +24,7 @@ if [ -f /etc/os-release ]; then
 elif type lsb_release >/dev/null 2>&1; then
 	echo "Ubuntu/Debian is most likely installed."
 	echo "Most likely uses apt. Checking for apt."
-	if [ `which apt` ]; then
+	if [ "$(which apt)" ]; then
 		echo "Apt is installed."
 		# This is untested
 		# do the same process for ubuntu/debian based stuff"
@@ -37,13 +37,11 @@ elif type lsb_release >/dev/null 2>&1; then
 	else
 		echo "Apt is not installed. Perhaps the original ID was incorrect."
 	fi
-else
-	echo "Most likely not Ubuntu/Debian"
 # echo $MACHTYPE seems like a good solution for all operating systems as it is
 # a BASH set var so it will always be found by a bash script
-elif [[ `echo $MACHTYPE` =~ "darwin" ]]; then
+elif [[ $MACHTYPE =~ "darwin" ]]; then
 	echo "Is MacOS"
-	if [ `which brew` == 0 ] then
+    if [ "$(which brew)" == 0 ]; then
 		echo "Brew is installed, installing other dependencies."
 		# Install Neovim stuff
         # what basically needs to happen here is that you do a brew install of
@@ -65,8 +63,6 @@ elif [[ `echo $MACHTYPE` =~ "darwin" ]]; then
 		echo "Brew is not installed. Installing."
         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	fi
-else
-	echo "Not MacOS"
 fi
 
 
