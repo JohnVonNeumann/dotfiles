@@ -2,7 +2,7 @@
 # I don't think I've written these `elifs` correctly, I suspect the entire point of an `elif` is
 # to not contain a second else 
 
-set -euxo pipefail
+set -e
 
 mkdir ~/.config/nvim
 touch ~/.config/nvim/init.vim
