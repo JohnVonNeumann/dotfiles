@@ -5,9 +5,6 @@ sudo: false
 install:
   - npm install -g remark-cli remark-preset-lint-recommended
 
-env:
-  - test_environment=true
-
 jobs:
   include:
     - stage: bash linting
@@ -18,6 +15,8 @@ jobs:
       os: linux
       language: shell
       script: ./setup.sh
+      env:
+        - test_environment: true
     - stage: testing setup.sh on Mac
       os: osx
       language: shell
