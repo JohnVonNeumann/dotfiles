@@ -4,7 +4,7 @@ sudo: false
 
 install:
   - gem install mdl
-  - npm install remark-lint
+  - npm install -g remark-lint
 
 jobs:
   include:
