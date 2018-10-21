@@ -46,7 +46,7 @@ elif [[ "$( lsb_release -a )" =~ "Ubuntu" ]]; then
         # pipeline, I have no interest in manually declaring it myself, as the
         # entire point of the var is to identify if the script is in a testing
         # environment
-        # shellcheck disable=SC2059
+        # shellcheck disable=SC2154
         if [[ $test_environment ]]; then
              apt-get install python-dev python-pip python3-dev python3-pip -y
              apt-add-repository ppa:neovim-ppa/stable -y
