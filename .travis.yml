@@ -3,12 +3,12 @@ language: shell
 sudo: false
 
 install:
-  - gem install mdl
   - npm install -g remark-cli
+  - npm install --save remark-cli remark-preset-lint-recommended
 
 jobs:
   include:
     - stage: bash linting
       script: bash -c 'shopt -s globstar; shellcheck *.sh'
     - stage: markdown linting
-      script: remark .
+      script: remark . --use preset-lint-markdown-style-guide
