@@ -11,13 +11,13 @@ cat <<EOF > ~/.config/nvim/init.vim
     let &packpath = &runtimepath
     source ~/.vimrc
 EOF
+printf $MACHTYPE
 if [ -f /etc/os-release ]; then
 	echo "/etc/os-release found!"
 	echo "Most likely based on Yum package manager."
 	if [ "$(which yum)" ]; then
 		echo "Yum is installed."
 		echo "blah"
-        techo "lol"
 		# install heaps of neovim stuff
 		yum -y install epel-release
 		curl -o /etc/yum.repos.d/dperson-neovim-epel-7.repo https://copr.fedorainfracloud.org/coprs/dperson/neovim/repo/epel-7/dperson-neovim-epel-7.repo
