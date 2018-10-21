@@ -6,7 +6,7 @@ install:
   - npm install -g remark-cli remark-preset-lint-recommended
 
 env:
-  - test_environment=true:
+  - test_environment=true
 
 jobs:
   include:
