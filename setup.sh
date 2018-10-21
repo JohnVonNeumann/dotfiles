@@ -30,7 +30,7 @@ if [[ "$( lsb_release -a )" =~ "Amazon" ]]; then
 	else
 		echo "Yum is not installed."
 	fi
-elif [[ "$( lsb_release -c )" =~ "Ubuntu" ]]; then
+elif [[ "$( lsb_release -a )" =~ "Ubuntu" ]]; then
 	echo "Ubuntu/Debian is most likely installed."
 	echo "Most likely uses apt. Checking for apt."
 	if [ "$(which apt)" ]; then
