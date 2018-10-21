@@ -2,6 +2,13 @@
 # I don't think I've written these `elifs` correctly, I suspect the entire point of an `elif` is
 # to not contain a second else 
 
+# A possible fix for the sudo issue presented by the CI pipeline:
+# Utilise vars within the pipeline and inside the script that identify whether
+# the script is running in a non sudo environment or not, for example, run with
+# sudo on hosts, and without sudo inside build pipelines `if x is defined then`
+# This doesn't even need to be self defined, travis sets its own envvars, use
+# one of those
+
 set -e
 
 mkdir ~/.config/nvim
