@@ -12,15 +12,10 @@ jobs:
     - stage: markdown linting
       script: remark . --use preset-lint-recommended --ignore-path .remark_ignore --frail
     - stage: testing setup.sh on Linux
-      script: ./setup.sh
       os: linux
+      language: shell
+      script: ./setup.sh
     - stage: testing setup.sh on Mac
-      script: ./setup.sh
       os: osx
-
-matrix:
-  include:
-    - os: osx
-      script: ./setup.sh
-    - os: linux
+      language: shell
       script: ./setup.sh
