@@ -2,15 +2,14 @@ language: shell
 
 sudo: false
 
-install:
-  - npm install -g remark-cli remark-preset-lint-recommended
-
 jobs:
   include:
     - stage: bash linting
       script: bash -c 'shopt -s globstar; shellcheck *.sh'
     - stage: markdown linting
       script: remark . --use preset-lint-recommended --ignore-path .remark_ignore --frail
+      install:
+        - npm install -g remark-cli remark-preset-lint-recommended
     - stage: testing setup.sh on Linux
       os: linux
       language: shell
