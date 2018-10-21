@@ -11,3 +11,10 @@ jobs:
       script: bash -c 'shopt -s globstar; shellcheck *.sh'
     - stage: markdown linting
       script: remark . --use preset-lint-recommended --ignore-path .remark_ignore --frail
+
+matrix:
+  include:
+    - os: osx
+      script: ./setup.sh
+    - os: linux
+      script: ./setup.sh
