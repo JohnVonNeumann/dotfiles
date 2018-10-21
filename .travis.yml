@@ -1,6 +1,6 @@
 language: shell
 
-sudo: required
+sudo: false
 
 install:
   - npm install -g remark-cli remark-preset-lint-recommended
