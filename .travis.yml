@@ -3,8 +3,7 @@ language: shell
 sudo: false
 
 install:
-  - npm install -g remark-cli
-  - npm install --save remark-cli remark-preset-lint-recommended
+  - npm install remark-cli remark-preset-lint-recommended
 
 jobs:
   include:
