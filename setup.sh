@@ -9,6 +9,10 @@
 # This doesn't even need to be self defined, travis sets its own envvars, use
 # one of those
 
+# Pull the script apart into separate functions so unit testing with BATS can
+# be completed and then use docker-compose to test using bats or whatever
+# is necessary
+
 set -e
 
 mkdir ~/.config/nvim
