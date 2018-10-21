@@ -4,10 +4,11 @@ sudo: false
 
 install:
   - gem install mdl
-    
+  - npm install remark-lint
+
 jobs:
   include:
     - stage: bash linting
       script: bash -c 'shopt -s globstar; shellcheck *.sh'
     - stage: markdown linting
-      script: mdl . 
+      script: remark . 
