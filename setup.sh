@@ -40,16 +40,25 @@ if [[ "$( lsb_release -a )" =~ "Amazon" ]]; then
 elif [[ "$( lsb_release -a )" =~ "Ubuntu" ]]; then
 	echo "Ubuntu/Debian is most likely installed."
 	echo "Most likely uses apt. Checking for apt."
-	if [ "$(which apt)" ]; then
+	if [ "$( which apt )" ]; then
 		echo "Apt is installed."
-		# This is untested
-		# do the same process for ubuntu/debian based stuff"
-		sudo apt-get install python-dev python-pip python3-dev python3-pip -y
-		sudo apt-add-repository ppa:neovim-ppa/stable -y
-		sudo apt-get update -y
-		sudo apt-get install neovim -y
-		curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-		    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        if [[ $test_environment ]]; then
+             apt-get install python-dev python-pip python3-dev python3-pip -y
+             apt-add-repository ppa:neovim-ppa/stable -y
+             apt-get update -y
+             apt-get install neovim -y
+             curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+                 https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        else
+		     # This is untested
+		     # do the same process for ubuntu/debian based stuff"
+		     sudo apt-get install python-dev python-pip python3-dev python3-pip -y
+		     sudo apt-add-repository ppa:neovim-ppa/stable -y
+		     sudo apt-get update -y
+		     sudo apt-get install neovim -y
+		     curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+		         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        fi
 	else
 		echo "Apt is not installed. Perhaps the original ID was incorrect."
 	fi
