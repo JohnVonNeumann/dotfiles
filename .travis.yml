@@ -11,4 +11,4 @@ jobs:
     - stage: bash linting
       script: bash -c 'shopt -s globstar; shellcheck *.sh'
     - stage: markdown linting
-      script: remark . --use preset-lint-markdown-style-guide
+      script: remark . --use preset-lint-recommended
