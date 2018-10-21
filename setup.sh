@@ -11,9 +11,14 @@ cat <<EOF > ~/.config/nvim/init.vim
     let &packpath = &runtimepath
     source ~/.vimrc
 EOF
-printf $MACHTYPE
-if [ -f /etc/os-release ]; then
+# Amazon Linux are ridiculously non-standard, they don't keep any of the usual
+# `/etc/*-release` files and even the call to `lsb_release -a` only contains
+# one useful piece of information. I was hoping to have the `yum` based stuff
+# all follow the same install/identification path, but I'll have to make things
+# a bit more custom.
+if [[ "$( lsb_release -a )" =~ "Amazon" ]]; then
 	echo "/etc/os-release found!"
+    cat /etc/os-release
 	echo "Most likely based on Yum package manager."
 	if [ "$(which yum)" ]; then
 		echo "Yum is installed."
@@ -25,7 +30,7 @@ if [ -f /etc/os-release ]; then
 	else
 		echo "Yum is not installed."
 	fi
-elif type lsb_release >/dev/null 2>&1; then
+elif [[ "$( lsb_release -c )" =~ "Ubuntu" ]]; then
 	echo "Ubuntu/Debian is most likely installed."
 	echo "Most likely uses apt. Checking for apt."
 	if [ "$(which apt)" ]; then
