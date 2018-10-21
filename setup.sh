@@ -1,6 +1,9 @@
 #!/bin/bash
 # I don't think I've written these `elifs` correctly, I suspect the entire point of an `elif` is
 # to not contain a second else 
+
+set -euxo pipefail
+
 mkdir ~/.config/nvim
 touch ~/.config/nvim/init.vim
 cat <<EOF > ~/.config/nvim/init.vim
@@ -9,7 +12,7 @@ cat <<EOF > ~/.config/nvim/init.vim
     source ~/.vimrc
 EOF
 if [ -f /etc/os-release ]; then
-	techo "/etc/os-release found!"
+	echo "/etc/os-release found!"
 	echo "Most likely based on Yum package manager."
 	if [ "$(which yum)" ]; then
 		echo "Yum is installed."
