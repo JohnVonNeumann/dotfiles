@@ -5,6 +5,9 @@ sudo: false
 install:
   - npm install -g remark-cli remark-preset-lint-recommended
 
+env:
+  - test_environment=true:
+
 jobs:
   include:
     - stage: bash linting
