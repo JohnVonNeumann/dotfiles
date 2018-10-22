@@ -118,9 +118,12 @@ fi
 
 # commented out and got bash_profile source working, basically this was 
 # supplying a circular reference, recommend using `source ~/.envvars`
-# or something of the like if this is needed
+# or something of the like if this is needed, noticed only had this issue on
+# macos, so i only source if machtype isnt darwin
 # enable bash_profile envvars to be used
-# source ~/.bash_profile
+if ! [ "$(MACHTYPE)" =~ "darwin" ]; then
+  source ~/.bash_profile
+fi
 
 #####################################################################################
 
@@ -210,6 +213,9 @@ fi
 if [ -x "$( command -v nvim )" ]; then
   alias vim="nvim"
 fi
+
+### bash_completion is brew installed, if it is, source it
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
 ### Add /programs to PATH ###
 export PATH="$PATH:$HOME/programs"
