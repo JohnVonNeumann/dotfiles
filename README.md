@@ -40,7 +40,7 @@ From my noob-perspective of testing, there are 4 types of testing:
 *   Nerf the `setup.sh` script into something nicer, I haven't put my thought into this yet. Will get it eventually.
 *   Assess whether it would be more sensible to simply pull all configuration code into one repository ( both larry-wall and dotfiles ) and simply perform some OS identification to work out which ansible playbooks to run, as this would provide a much simpler method of testing/ensuring idempotency and whatnot is reached.
 
-> https://raymii.org/s/tutorials/Ansible_-_Only_if_on_specific_distribution_or_distribution_version.html
+> [ansible os detection and playbook runs](https://raymii.org/s/tutorials/Ansible_-_Only_if_on_specific_distribution_or_distribution_version.html)
 
 ## Bits and pieces of thought as I've been writing recently
 
