@@ -14,10 +14,31 @@ filled with your favourite family members, good beer and a damned good time.
 4.  ????
 5.  Profit
 
+## Approaches to testing
+
+From my noob-perspective of testing, there are 4 types of testing:
+
+1.  Unit testing - making sure small units (functions) do their job.
+
+> bats, bats-core
+
+2.  Integration testing - making sure the units (functions) complete the process they were built to do as a team.
+
+> bats, bats-core
+
+3.  Smoke testing - making sure that the thing runs through to completion without setting fires.
+
+> running the script in a controlled environment
+
+4.  System testing - making sure that the thing actually did what you thought it did.  
+
+> inspec
+
 ## Thoughts for times of implementation, not slightly-drunk planning
 
 *   Move all possible configurations into this repository, more than likely a slow process.
 *   Nerf the `setup.sh` script into something nicer, I haven't put my thought into this yet. Will get it eventually.
+*   Assess whether it would be more sensible to simply pull all configuration code into one repository ( both larry-wall and dotfiles ) and simply perform some OS identification to work out which ansible playbooks to run, as this would provide a much simpler method of testing/ensuring idempotency and whatnot is reached.
 
 ## Bits and pieces of thought as I've been writing recently
 
