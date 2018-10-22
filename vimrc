@@ -72,6 +72,19 @@ let g:deoplete#enable_at_startup = 1
 " will make some edits to this as I play with it
 " }}}
 
+" syntastic settings {{{
+" These settings aren't by me, they're the recommended settings
+" https://github.com/vim-syntastic/syntastic#3-recommended-settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1 
+" }}}
+
 " Vim Plug {{{
 call plug#begin('~/.vim/autoload')
 if has('nvim')
