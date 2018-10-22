@@ -46,28 +46,14 @@ elif [[ "$( lsb_release -a )" =~ "Ubuntu" ]]; then
 	echo "Most likely uses apt. Checking for apt."
 	if [ "$( which apt )" ]; then
 		echo "Apt is installed."
-        # Disable shellcheck for this line, the var is sourced from the OS/CI
-        # pipeline, I have no interest in manually declaring it myself, as the
-        # entire point of the var is to identify if the script is in a testing
-        # environment
-        # shellcheck disable=SC2154
-        if [[ $test_environment ]]; then
-             apt-get install python-dev python-pip python3-dev python3-pip -y
-             apt-add-repository ppa:neovim-ppa/stable -y
-             apt-get update -y
-             apt-get install neovim -y
-             curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-                 https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-        else
-		     # This is untested
-		     # do the same process for ubuntu/debian based stuff"
-		     sudo apt-get install python-dev python-pip python3-dev python3-pip -y
-		     sudo apt-add-repository ppa:neovim-ppa/stable -y
-		     sudo apt-get update -y
-		     sudo apt-get install neovim -y
-		     curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-		         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-        fi
+		# This is untested
+		# do the same process for ubuntu/debian based stuff"
+		sudo apt-get install python-dev python-pip python3-dev python3-pip -y
+		sudo apt-add-repository ppa:neovim-ppa/stable -y
+		sudo apt-get update -y
+		sudo apt-get install neovim -y
+		curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+		    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	else
 		echo "Apt is not installed. Perhaps the original ID was incorrect."
 	fi
