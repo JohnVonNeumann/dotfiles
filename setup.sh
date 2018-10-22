@@ -46,6 +46,7 @@ elif [[ "$( lsb_release -a )" =~ "Ubuntu" ]]; then
 	echo "Most likely uses apt. Checking for apt."
 	if [ "$( which apt )" ]; then
 		echo "Apt is installed."
+        echo "Just need a build here"
 		# This is untested
 		# do the same process for ubuntu/debian based stuff"
 		sudo apt-get install python-dev python-pip python3-dev python3-pip -y
