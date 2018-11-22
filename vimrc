@@ -1,4 +1,5 @@
 " General Settings {{{
+set nocompatible
 set guicursor=
 set backspace=indent,eol,start     "had a situation where my vim backspace broke
                                    ""so this is the solution
