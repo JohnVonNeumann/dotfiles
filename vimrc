@@ -108,6 +108,7 @@ Plug 'posva/vim-vue'               " syntax highlighting for vue
 Plug 'elzr/vim-json'               " Json helper
 Plug 'digitalrounin/vim-yaml-folds'  " Help with folding in YAML
 Plug 'scrooloose/syntastic'        " syntax highlighting plugin interface
+Plug 'airblade/vim-gitgutter'
 call plug#end()
 " }}}
 
