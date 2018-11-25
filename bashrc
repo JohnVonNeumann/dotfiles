@@ -1,5 +1,4 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+# ~/.bashrc: executed by bash(1) for non-login shells.  # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
 # If not running interactively, don't do anything
@@ -43,7 +42,7 @@ esac
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
-#force_color_prompt=yes
+force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
@@ -121,9 +120,9 @@ fi
 # or something of the like if this is needed, noticed only had this issue on
 # macos, so i only source if machtype isnt darwin
 # enable bash_profile envvars to be used
-if ! [ "$(MACHTYPE)" =~ "darwin" ]; then
-  source ~/.bash_profile
-fi
+#if ! [ "$MACHTYPE" =~ "darwin" ]; then
+#  source ~/.bash_profile
+#fi
 
 #####################################################################################
 
@@ -150,6 +149,13 @@ if [ -x "$(command -v ansible-vault)" ]; then
   }
 fi
 
+# Simple func that takes in a parameter (a program) that we wish to background
+# and pipes output to /dev/null to stop annoying term issues with output coming
+# back over the top of the session
+bground () {
+  $1 > /dev/null 2>&1 &
+}
+
 ### yamllinting function for non-annoying parsing of config
 if [ -x "$(command -v yamllint)" ]; then
   yl () {
@@ -158,9 +164,11 @@ if [ -x "$(command -v yamllint)" ]; then
 fi
 
 ### Random system functions, not all of which are written by me
-wifi_strength () {
-  watch -n 1 "awk 'NR==3 {print \"WiFi Signal Strength = \" \$3 \"00 %\"}''' /proc/net/wireless"
-}
+if [ -x "$(command -v watch)" ]; then
+  wifi_strength () {
+    watch -n 1 "awk 'NR==3 {print \"WiFi Signal Strength = \" \$3 \"00 %\"}''' /proc/net/wireless"
+  }
+fi
 
 ### General code cleaning
 alias whitespaceassassin="ex +'bufdo!%s/\s\+$//' -scxa *.*"
@@ -191,8 +199,12 @@ alias cdssh="cd $SSH_DIR"
 # xclip requires x11, therefore it's not gonna work on MacOS because no x11
 # so this should do a system/os id check before running, need a function to
 # id this, possibly already written via setup.sh 
-alias c="xclip"        # eg: $ pwd | c
-alias p="xclip -o"     # eg: cd `p`
+# update 231118: just perform bash test to see if its installed, check later
+# if this is appropriate
+if [ -x "$( command -v xclip)" ]; then
+  alias c="xclip"        # eg: $ pwd | c
+  alias p="xclip -o"     # eg: cd `p`
+fi
 
 ### python project aliases ###
 alias deact="deactivate"
