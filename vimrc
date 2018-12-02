@@ -1,4 +1,8 @@
 " General Settings {{{
+set title
+" set the title
+set titlestring=%{substitute(getcwd(),\ $HOME,\ '~',\ '')}/
+set titlestring+=%f
 set nocompatible
 set guicursor=
 set backspace=indent,eol,start     "had a situation where my vim backspace broke
@@ -108,7 +112,8 @@ Plug 'posva/vim-vue'               " syntax highlighting for vue
 Plug 'elzr/vim-json'               " Json helper
 Plug 'digitalrounin/vim-yaml-folds'  " Help with folding in YAML
 Plug 'scrooloose/syntastic'        " syntax highlighting plugin interface
-Plug 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter'      " provides a left side gutter of git actions
+Plug 'heavenshell/vim-pydocstring' " provides auto docstring generation
 call plug#end()
 " }}}
 
