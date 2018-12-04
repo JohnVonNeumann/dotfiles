@@ -78,6 +78,7 @@ let g:deoplete#enable_at_startup = 1
 " }}}
 
 " syntastic settings {{{
+
 " These settings aren't by me, they're the recommended settings
 " https://github.com/vim-syntastic/syntastic#3-recommended-settings
 set statusline+=%#warningmsg#
@@ -89,6 +90,10 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1 
 " }}}
+
+" vim-terraform settings
+let g:terraform_align=1
+let g:terraform_fold_sections=1
 
 " Vim Plug {{{
 call plug#begin('~/.vim/autoload')
@@ -114,6 +119,7 @@ Plug 'digitalrounin/vim-yaml-folds'  " Help with folding in YAML
 Plug 'scrooloose/syntastic'        " syntax highlighting plugin interface
 Plug 'airblade/vim-gitgutter'      " provides a left side gutter of git actions
 Plug 'heavenshell/vim-pydocstring' " provides auto docstring generation
+Plug 'hashivim/vim-terraform'      " terraform support
 call plug#end()
 " }}}
 
