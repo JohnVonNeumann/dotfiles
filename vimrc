@@ -106,20 +106,28 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
-Plug 'nvie/vim-flake8'             " Perhaps redundant with python-mode included
-Plug 'yggdroot/indentline'         " indentation indicator support
-Plug 'vim-airline/vim-airline'     " bottom status barring, for a more ide feel
-Plug 'ervandew/supertab'           " use <Tab> to select autocomplete choices
+Plug 'airblade/vim-gitgutter'      " provides a left side gutter of git actions
+Plug 'bbatsov/rubocop'
+Plug 'cocopon/iceberg.vim'
 Plug 'davidhalter/jedi-vim'        " <Ctrl-Space> to enable autocomplete
-Plug 'tpope/vim-fugitive'          " Git wrapper for vim
+Plug 'digitalrounin/vim-yaml-folds'  " Help with folding in YAML
+Plug 'elzr/vim-json'               " Json helper
+Plug 'ervandew/supertab'           " use <Tab> to select autocomplete choices
+Plug 'hashivim/vim-hashicorp-tools'
+Plug 'hashivim/vim-terraform'      " terraform support
+Plug 'hashivim/vim-vaultproject'
+Plug 'heavenshell/vim-pydocstring' " provides auto docstring generation
+Plug 'juliosueiras/vim-terraform-completion'
+Plug 'martinda/jenkinsfile-vim-syntax'
+Plug 'ngmy/vim-rubocop'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'nvie/vim-flake8'             " Perhaps redundant with python-mode included
 Plug 'pearofducks/ansible-vim'     " Ansible Vim
 Plug 'posva/vim-vue'               " syntax highlighting for vue
-Plug 'elzr/vim-json'               " Json helper
-Plug 'digitalrounin/vim-yaml-folds'  " Help with folding in YAML
 Plug 'scrooloose/syntastic'        " syntax highlighting plugin interface
-Plug 'airblade/vim-gitgutter'      " provides a left side gutter of git actions
-Plug 'heavenshell/vim-pydocstring' " provides auto docstring generation
-Plug 'hashivim/vim-terraform'      " terraform support
+Plug 'tpope/vim-fugitive'          " Git wrapper for vim
+Plug 'vim-airline/vim-airline'     " bottom status barring, for a more ide feel
+Plug 'yggdroot/indentline'         " indentation indicator support
 call plug#end()
 " }}}
 
