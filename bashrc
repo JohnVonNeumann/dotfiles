@@ -192,7 +192,17 @@ alias gitpersonal="git config user.name $GIT_PERSONAL_NAME && git config user.em
 
 ### Useful filesystem/project aliases ###
 alias cdopensource="cd $OPENSOURCE_REPO"
+alias cdgo="cd code/go/src"
 alias cdssh="cd $SSH_DIR"
+
+if [ -x "$(command -v awskeyring)" ]; then
+  awsenv () {
+    eval "$(awskeyring env $@)";
+  }
+  awscp () {
+    eval "$(awskeyring env $@ | pbcopy)";
+  }
+fi
 
 ### bash/terminal aliases ###
 # xclip is apt installed, provides an easy access point to the x clipboard
