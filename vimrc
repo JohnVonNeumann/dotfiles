@@ -128,6 +128,7 @@ Plug 'scrooloose/syntastic'        " syntax highlighting plugin interface
 Plug 'tpope/vim-fugitive'          " Git wrapper for vim
 Plug 'vim-airline/vim-airline'     " bottom status barring, for a more ide feel
 Plug 'yggdroot/indentline'         " indentation indicator support
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 call plug#end()
 " }}}
 
