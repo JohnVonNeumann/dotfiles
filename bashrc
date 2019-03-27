@@ -244,5 +244,6 @@ fi
 export PATH="$PATH:$HOME/programs"
 export PATH="$PATH:$HOME/.gem/ruby/2.5.0/bin"
 export GOPATH="$HOME/code/go"
+export PATH="$PATH:/usr/local/bin"
 ### Enable superuser bin finding
 PATH=$PATH:/usr/sbin:/sbin

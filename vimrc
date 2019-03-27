@@ -129,6 +129,11 @@ Plug 'tpope/vim-fugitive'          " Git wrapper for vim
 Plug 'vim-airline/vim-airline'     " bottom status barring, for a more ide feel
 Plug 'yggdroot/indentline'         " indentation indicator support
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'vim-scripts/c.vim'
+Plug 'tpope/vim-commentary'
+Plug 'sheerun/vim-polyglot'
+Plug 'ludovicchabant/vim-gutentags'
+"Plug 'johnvonneumann/vim-docstring-report'
 call plug#end()
 " }}}
 
