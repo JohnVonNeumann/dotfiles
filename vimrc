@@ -133,7 +133,8 @@ Plug 'vim-scripts/c.vim'
 Plug 'tpope/vim-commentary'
 Plug 'sheerun/vim-polyglot'
 Plug 'ludovicchabant/vim-gutentags'
-"Plug 'johnvonneumann/vim-docstring-report'
+Plug 'vimwiki/vimwiki'
+Plug 'johnvonneumann/vim-docstring-report'
 call plug#end()
 " }}}
 
