@@ -134,6 +134,7 @@ Plug 'tpope/vim-commentary'
 Plug 'sheerun/vim-polyglot'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'vimwiki/vimwiki'
+Plug 'pangloss/vim-javascript'
 Plug 'johnvonneumann/vim-docstring-report'
 call plug#end()
 " }}}
