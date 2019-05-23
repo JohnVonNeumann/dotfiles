@@ -194,8 +194,9 @@ alias git-commit-fix-lint-errors="git commit -m \"FIX lint errors\""
 
 ### Useful filesystem/project aliases ###
 alias cdopensource="cd $OPENSOURCE_REPO"
-alias cdgo="cd code/go/src"
+alias cdgo="cd ~/code/go/src"
 alias cdssh="cd $SSH_DIR"
+alias cdcode="cd ~/code"
 
 if [ -x "$(command -v awskeyring)" ]; then
   awsenv () {
