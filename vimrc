@@ -7,8 +7,8 @@ set nocompatible
 set guicursor=
 set backspace=indent,eol,start     "had a situation where my vim backspace broke
                                    ""so this is the solution
-set filetype=on                    "enable filetype detection for autocmd 
-set hidden                         ""hide unsaved buffers instead of 
+set filetype=on                    "enable filetype detection for autocmd
+set hidden                         ""hide unsaved buffers instead of
                                    ""closing them, so we can do
                                    "":argdo without pain
 let mapleader=","                  "changes the default leader key from / to ,
@@ -29,13 +29,18 @@ set showcmd                          "show command in bottom bar
 set cursorline                       "highlight current line
 set wildmenu                         "visual autocomplete for command menu
 set showmatch                        "highlight matching parentheses
+set t_Co=256
 " }}}
 
 " Search {{{
 set incsearch                                "search as chars are entered
 set hlsearch                                 "highlight search matches
-nnoremap <leader><space> :nohlsearch <CR>    "<,.> removes all hightlighting 
-" }}} 
+nnoremap <leader><space> :nohlsearch <CR>    "<,.> removes all hightlighting
+" }}}
+
+" Whitespace commands {{{
+nnoremap <leader>w :%s/\s\+$//e <CR>    "<,w> removes all errant whitespace
+" }}}
 
 " Spaces V Tabs {{{
 set tabstop=4                   "4 space tab
@@ -88,7 +93,7 @@ set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 1 
+let g:syntastic_check_on_wq = 1
 " }}}
 
 " vim-terraform settings
@@ -136,6 +141,9 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'vimwiki/vimwiki'
 Plug 'pangloss/vim-javascript'
 Plug 'johnvonneumann/vim-docstring-report'
+Plug 'hashicorp/sentinel.vim'
+Plug 'hashivim/vim-packer'
+Plug 'vim-scripts/bash-support.vim'     " bash ide support
 call plug#end()
 " }}}
 
