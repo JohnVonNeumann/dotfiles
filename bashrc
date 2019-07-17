@@ -34,6 +34,10 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
+# added to enable colour term in mac:terminal/screen/vim combo, one of them had
+# a bug which disabled colour
+TERM=xterm-256color
+
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
     xterm-color|*-256color) color_prompt=yes;;
@@ -249,3 +253,4 @@ export GOPATH="$HOME/code/go"
 export PATH="$PATH:/usr/local/bin"
 ### Enable superuser bin finding
 PATH=$PATH:/usr/sbin:/sbin
+PATH="$PATH:$HOME"
