@@ -35,7 +35,9 @@ set t_Co=256
 " Search {{{
 set incsearch                                "search as chars are entered
 set hlsearch                                 "highlight search matches
+set ignorecase                               "search case insensitively
 nnoremap <leader><space> :nohlsearch <CR>    "<,.> removes all hightlighting
+nnoremap <leader>p :set paste<cr>p:set nopaste<cr>
 " }}}
 
 " Whitespace commands {{{
@@ -144,6 +146,7 @@ Plug 'johnvonneumann/vim-docstring-report'
 Plug 'hashicorp/sentinel.vim'
 Plug 'hashivim/vim-packer'
 Plug 'vim-scripts/bash-support.vim'     " bash ide support
+Plug 'tpope/vim-surround'           " binds for quoting words, `,\"${},\"`
 call plug#end()
 " }}}
 
