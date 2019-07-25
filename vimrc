@@ -13,6 +13,7 @@ set hidden                         ""hide unsaved buffers instead of
                                    "":argdo without pain
 let mapleader=","                  "changes the default leader key from / to ,
                                    "so commands can be run with ,{key}
+set spell spelllang=en_au          "spell checking support, with mutable dict
 " }}}
 
 " Folding {{{
