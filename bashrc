@@ -185,10 +185,10 @@ alias whitespaceassassin="ex +'bufdo!%s/\s\+$//' -scxa *.*"
   # // | replace with nothing
   # Ex:
   # :help Ex is a mode of vim that provides extra cmd line processing
-  #  + | command following will be exec'd after first file is read
+  #  + | command following will be executed after first file is read
   # -s | silent mode
-  # -c | command, i think, docs are shaky, doesnt work without
-  # -x | use encryption, doesnt seem to work without it, hangs
+  # -c | command, i think, docs are shaky, doesn't work without
+  # -x | use encryption, doesn't seem to work without it, hangs
 
 ### git aliases ###
 alias gitremoveallmergedlocals="git branch --merged | egrep -v '(^\*|master|dev)' | xargs git branch -d"
@@ -197,10 +197,11 @@ alias git-fap="git fetch --all --prune"
 alias git-commit-fix-lint-errors="git commit -m \"FIX lint errors\""
 
 ### Useful filesystem/project aliases ###
-alias cdopensource="cd $OPENSOURCE_REPO"
-alias cdgo="cd ~/code/go/src"
-alias cdssh="cd $SSH_DIR"
+alias cdc="cd && clear"
 alias cdcode="cd ~/code"
+alias cdgo="cd ~/code/go/src"
+alias cdopensource="cd $OPENSOURCE_REPO"
+alias cdssh="cd $SSH_DIR"
 
 if [ -x "$(command -v awskeyring)" ]; then
   awsenv () {
