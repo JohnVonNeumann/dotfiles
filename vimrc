@@ -148,6 +148,7 @@ Plug 'hashicorp/sentinel.vim'
 Plug 'hashivim/vim-packer'
 Plug 'vim-scripts/bash-support.vim'     " bash ide support
 Plug 'tpope/vim-surround'           " binds for quoting words, `,\"${},\"`
+Plug 'aliou/bats.vim'               " syntax highlighting for bats-core
 call plug#end()
 " }}}
 
