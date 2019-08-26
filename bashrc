@@ -195,6 +195,7 @@ alias gitremoveallmergedlocals="git branch --merged | egrep -v '(^\*|master|dev)
 alias gitpersonal="git config user.name $GIT_PERSONAL_NAME && git config user.email $GIT_PERSONAL_EMAIL"
 alias git-fap="git fetch --all --prune"
 alias git-commit-fix-lint-errors="git commit -m \"FIX lint errors\""
+alias git-count="git log | grep -c commit"
 
 ### Useful filesystem/project aliases ###
 alias cdc="cd && clear"
