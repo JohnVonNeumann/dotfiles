@@ -22,3 +22,9 @@ filled with your favourite family members, good beer and a damned good time.
 ## Bits and pieces of thought as I've been writing recently
 
 *   I may not need `setup.sh` I could potentially just try and find modules within Ansible for much of the `macos/brew` based installs, along with `rhel/yum`. May want to look into this, as I shouldn't be writing script for everything just because `neovim` on `ubuntu` can be a pain to install.
+
+## Things to add/symlink
+
+Dictionary additions.
+~/.vim/spell/en.utf-8.add
+
