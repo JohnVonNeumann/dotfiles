@@ -45,6 +45,10 @@ nnoremap <leader>p :set paste<cr>p:set nopaste<cr>
 nnoremap <leader>w :%s/\s\+$//e <CR>    "<,w> removes all errant whitespace
 " }}}
 
+" Settings shortcuts {{{
+nnoremap <leader>sp :set spell! <CR>    "<,sp> negates the current :spell setting
+" }}}
+
 " Spaces V Tabs {{{
 set tabstop=4                   "4 space tab
 set expandtab                   "use spaces for tabs
