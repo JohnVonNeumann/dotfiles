@@ -137,6 +137,12 @@ fi
 ### Useful file locations
 export SSH_DIR=~/.ssh
 
+### Grep for values with standard every-run conditions
+# $1 = Search value
+qgrep () {
+  grep -nr $1 . --exclude-dir={.terraform,.git,modules,vendor} --exclude={*.log,*.log.?} --color=always --line-number .
+}
+
 ### ansible related shortcut/functions ###
 # command -v syntax is preferred as it is internal shell functionality and doesn't
 # require external procs to be forkandexec'd to check the existence of files/exe's
