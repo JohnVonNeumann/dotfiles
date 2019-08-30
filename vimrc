@@ -153,6 +153,7 @@ Plug 'hashivim/vim-packer'
 Plug 'vim-scripts/bash-support.vim'     " bash ide support
 Plug 'tpope/vim-surround'           " binds for quoting words, `,\"${},\"`
 Plug 'aliou/bats.vim'               " syntax highlighting for bats-core
+Plug 'dense-analysis/ale'           " async linting with LangServProt support
 call plug#end()
 " }}}
 
