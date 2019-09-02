@@ -20,6 +20,9 @@
     ~/.bashrc:
       path: bashrc
       force: true
+    ~/.screenrc:
+      path: screenrc
+      force: true
 
 
 - shell:
