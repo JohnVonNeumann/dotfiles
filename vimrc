@@ -103,9 +103,18 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
 " }}}
 
-" vim-terraform settings
+" vim-terraform settings {{{
 let g:terraform_align=1
 let g:terraform_fold_sections=1
+" }}}
+
+" fzf settings {{{
+nnoremap <C-p> :<C-u>FZF<CR>
+" }}}
+
+" vimwiki settings {{{
+let g:vimwiki_use_calendar=1
+" }}}
 
 " Vim Plug {{{
 call plug#begin('~/.vim/autoload')
