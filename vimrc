@@ -163,6 +163,8 @@ Plug 'vim-scripts/bash-support.vim'     " bash ide support
 Plug 'tpope/vim-surround'           " binds for quoting words, `,\"${},\"`
 Plug 'aliou/bats.vim'               " syntax highlighting for bats-core
 Plug 'dense-analysis/ale'           " async linting with LangServProt support
+Plug 'junegunn/fzf'                 " fuzzy file matching
+Plug 'itchyny/calendar.vim'         " in vim calendar support with vimwiki integ
 call plug#end()
 " }}}
 
