@@ -109,7 +109,7 @@ let g:terraform_fold_sections=1
 " }}}
 
 " fzf settings {{{
-nnoremap <C-p> :<C-u>FZF<CR>
+nnoremap <C-s> :<C-u>FZF<CR>
 " }}}
 
 " vimwiki settings {{{
