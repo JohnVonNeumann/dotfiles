@@ -38,7 +38,6 @@ set incsearch                                "search as chars are entered
 set hlsearch                                 "highlight search matches
 set ignorecase                               "search case insensitively
 nnoremap <leader><space> :nohlsearch <CR>    "<,.> removes all hightlighting
-nnoremap <leader>p :set paste<cr>p:set nopaste<cr>
 " }}}
 
 " Whitespace commands {{{
@@ -47,6 +46,7 @@ nnoremap <leader>w :%s/\s\+$//e <CR>    "<,w> removes all errant whitespace
 
 " Settings shortcuts {{{
 nnoremap <leader>sp :set spell! <CR>    "<,sp> negates the current :spell setting
+nnoremap <leader>p :set paste! <CR>     "<,p> negates the current paste setting
 " }}}
 
 " Spaces V Tabs {{{
