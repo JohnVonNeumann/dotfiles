@@ -118,13 +118,6 @@ nnoremap <C-s> :<C-u>FZF<CR>
 let g:vimwiki_use_calendar=1
 " }}}
 
-" vim-you-autocorrect settings {{{
-augroup ILoveCorrections
-  autocmd!
-  autocmd BufEnter * EnableAutocorrect
-augroup END
-" }}}
-
 " Vim Plug {{{
 call plug#begin('~/.vim/autoload')
 if has('nvim')
@@ -174,7 +167,6 @@ Plug 'aliou/bats.vim'               " syntax highlighting for bats-core
 Plug 'dense-analysis/ale'           " async linting with LangServProt support
 Plug 'junegunn/fzf'                 " fuzzy file matching
 Plug 'itchyny/calendar.vim'         " in vim calendar support with vimwiki integ
-Plug 'sedm0784/vim-you-autocorrect' " vim spelling/auto-correct
 call plug#end()
 " }}}
 
