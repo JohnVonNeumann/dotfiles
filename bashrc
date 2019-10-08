@@ -221,6 +221,19 @@ git-squash-commit () {
   fi
 }
 
+# git-push
+# The majority of my pushes exist on branches of active development, I know I
+# can set an upstream and then just use `git push` but I always forget, so this
+# will do.
+git-push () {
+  local branch=$(git branch | grep "*" | awk '{ print $2 }')
+  if [[ $? == 0 ]]; then
+    git push origin $branch
+  else
+    echo "Error: Couldn't source branch name"
+  fi
+}
+
 ### Useful filesystem/project aliases ###
 alias cdc="cd && clear"
 alias cdcode="cd ~/code"
