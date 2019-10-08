@@ -203,6 +203,24 @@ alias git-fap="git fetch --all --prune"
 alias git-commit-fix-lint-errors="git commit -m \"FIX lint errors\""
 alias git-count="git log | grep -c commit"
 
+# git-squash-commit
+# Sometimes when I'm working with a codebase I will be playing with an idea
+# workflow trying to get it to work, maybe (probably) they're changes that are
+# similar to other temporally related commits, so in this case, they'll likely
+# all get squashed into a final fix commit at the end, in this case, I'll be
+# trying something, then pushing to CI, then trying again and pushing to CI.
+# This helps do that faster.
+git-squash-commit () {
+  git status > /dev/null 2>&1
+  if [[ $? != 0 ]]; then
+    echo "Error: Not a git repository.";
+  else
+    local branch=$(git branch | grep "*" | awk '{ print $2 }')
+    git commit -am "SQUASH commit - debugging/fixes"
+    git push origin $branch
+  fi
+}
+
 ### Useful filesystem/project aliases ###
 alias cdc="cd && clear"
 alias cdcode="cd ~/code"
