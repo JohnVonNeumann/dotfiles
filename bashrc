@@ -234,6 +234,19 @@ git-push () {
   fi
 }
 
+# git-push-with-lease
+# Just the git-push function with the --force-with-lease flag set to be able to
+# do pushes after rebasing.
+# TODO: Just allow for a flag to be set in the `git-push` function.
+git-push-with-lease () {
+  local branch=$(git branch | grep "*" | awk '{ print $2 }')
+  if [[ $? == 0 ]]; then
+    git push origin $branch --force-with-lease
+  else
+    echo "Error: Couldn't source branch name"
+  fi
+}
+
 # git-pr-patch-data
 # It's useful to get a nice output of all changes for a branch against master
 # sometimes. This can then be pasted into a pull request description and be
