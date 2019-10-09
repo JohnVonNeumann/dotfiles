@@ -215,6 +215,7 @@ git-squash-commit () {
   if [[ $? != 0 ]]; then
     echo "Error: Not a git repository.";
   else
+    # TODO: Spin out the `branch` declaration into a function, keep it DRY.
     local branch=$(git branch | grep "*" | awk '{ print $2 }')
     git commit -am "SQUASH commit - debugging/fixes"
     git push origin $branch
