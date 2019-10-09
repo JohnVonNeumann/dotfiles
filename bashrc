@@ -234,6 +234,19 @@ git-push () {
   fi
 }
 
+# git-pr-patch-data
+# It's useful to get a nice output of all changes for a branch against master
+# sometimes. This can then be pasted into a pull request description and be
+# viewed by those reviewing the PR.
+git-pr-patch-data () {
+  local branch=$(git branch | grep "*" | awk '{ print $2 }')
+  if [[ $? == 0 ]]; then
+    git request-pull -p origin/master origin $branch
+  else
+    echo "Error: Couldn't source branch name"
+  fi
+}
+
 ### Useful filesystem/project aliases ###
 alias cdc="cd && clear"
 alias cdcode="cd ~/code"
