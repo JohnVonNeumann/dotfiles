@@ -130,6 +130,8 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
+Plug 'deoplete-plugins/deoplete-jedi' " deoplete python support
+
 Plug 'airblade/vim-gitgutter'      " provides a left side gutter of git actions
 Plug 'bbatsov/rubocop'
 Plug 'cocopon/iceberg.vim'
