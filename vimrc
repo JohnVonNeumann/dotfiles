@@ -167,6 +167,7 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'yggdroot/indentline'         " indentation indicator support
 Plug 'sheerun/vim-polyglot'        " single plugin for syntax support
 Plug 'janko/vim-test'              " test execution support
+Plug 'Raimondi/delimitMate'        " auto delimiter completion
 
 " code utility support
 Plug 'tpope/vim-fugitive'          " Git wrapper for vim
