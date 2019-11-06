@@ -134,6 +134,14 @@ let g:easytags_suppress_ctags_warning = 1
 nmap <silent> <leader>b :TagbarToggle<CR>
 " }}}
 
+" vim-test settings {{{
+nmap <silent> <leader>tn :TestNearest<CR>
+nmap <silent> <leader>tf :TestFile<CR>
+nmap <silent> <leader>ts :TestSuite<CR>
+nmap <silent> <leader>tl :TestLast<CR>
+nmap <silent> <leader>tv :TestVisit<CR>
+" }}}
+
 " Vim Plug {{{
 call plug#begin('~/.vim/autoload')
 if has('nvim')
@@ -158,6 +166,7 @@ Plug 'vim-airline/vim-airline'     " bottom status barring, for a more ide feel
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'yggdroot/indentline'         " indentation indicator support
 Plug 'sheerun/vim-polyglot'        " single plugin for syntax support
+Plug 'janko/vim-test'              " test execution support
 
 " code utility support
 Plug 'tpope/vim-fugitive'          " Git wrapper for vim
