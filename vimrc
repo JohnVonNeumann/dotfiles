@@ -193,5 +193,3 @@ Plug 'vimwiki/vimwiki'             " wiki system for note taking
 
 call plug#end()
 " }}}
-
-
