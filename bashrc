@@ -140,7 +140,7 @@ export SSH_DIR=~/.ssh
 ### Grep for values with standard every-run conditions
 # $1 = Search value
 qgrep () {
-  grep -nr $1 . --exclude-dir={.terraform,.git,modules,vendor} --exclude={*.log,*.log.?} --color=always --line-number .
+  grep -nr $1 . --exclude-dir={.terraform,.git,modules,vendor} --exclude={*.log,*.log.?} --color=always --line-number
 }
 
 ### ansible related shortcut/functions ###
