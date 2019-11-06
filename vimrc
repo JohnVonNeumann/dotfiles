@@ -119,6 +119,10 @@ let g:vimwiki_use_calendar=1
 let g:vimwiki_list = [{'path': '~/vimwiki/tech'},{'path': '~/vimwiki/personal'},{'path': "~/vimwiki/work"}]
 " }}}
 
+" tagbar setttings {{{
+nmap <F8> :TagbarToggle<CR>
+" }}}
+
 " Vim Plug {{{
 call plug#begin('~/.vim/autoload')
 if has('nvim')
@@ -131,6 +135,9 @@ else
 endif
 
 Plug 'deoplete-plugins/deoplete-jedi' " deoplete python support
+Plug 'majutsushi/tagbar'           " a window for tags to be displayed
+Plug 'xolox/vim-easytags'          " client interface for ctags binary
+Plug 'xolox/vim-misc'              " provides req libs for easytags
 
 Plug 'airblade/vim-gitgutter'      " provides a left side gutter of git actions
 Plug 'davidhalter/jedi-vim'        " <Ctrl-Space> to enable autocomplete
