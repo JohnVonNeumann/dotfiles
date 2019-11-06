@@ -119,8 +119,18 @@ let g:vimwiki_use_calendar=1
 let g:vimwiki_list = [{'path': '~/vimwiki/tech'},{'path': '~/vimwiki/personal'},{'path': "~/vimwiki/work"}]
 " }}}
 
-" tagbar setttings {{{
-nmap <F8> :TagbarToggle<CR>
+" easytags settings {{{
+" Where to look for tags files
+set tags=./tags;,~/.vimtags
+" Sensible defaults
+let g:easytags_events = ['BufReadPost', 'BufWritePost']
+let g:easytags_async = 1
+let g:easytags_dynamic_files = 2
+let g:easytags_resolve_links = 1
+let g:easytags_suppress_ctags_warning = 1
+
+" tagbar settings {{{
+nmap <silent> <leader>b :TagbarToggle<CR>
 " }}}
 
 " Vim Plug {{{
