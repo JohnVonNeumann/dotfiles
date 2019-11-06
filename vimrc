@@ -153,11 +153,11 @@ Plug 'scrooloose/syntastic'        " syntax highlighting plugin interface
 Plug 'tpope/vim-fugitive'          " Git wrapper for vim
 Plug 'vim-airline/vim-airline'     " bottom status barring, for a more ide feel
 Plug 'yggdroot/indentline'         " indentation indicator support
-Plug 'tpope/vim-commentary'
-Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-commentary'        " easier commenting of code
+Plug 'sheerun/vim-polyglot'        " single plugin for syntax support
 Plug 'ludovicchabant/vim-gutentags'
-Plug 'vimwiki/vimwiki'
-Plug 'johnvonneumann/vim-docstring-report'
+Plug 'vimwiki/vimwiki'             " wiki system for note taking
+Plug 'johnvonneumann/vim-docstring-report' " find missing py docstrings
 Plug 'vim-scripts/bash-support.vim'     " bash ide support
 Plug 'tpope/vim-surround'           " binds for quoting words, `,\"${},\"`
 Plug 'aliou/bats.vim'               " syntax highlighting for bats-core
