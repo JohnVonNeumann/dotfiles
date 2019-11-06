@@ -67,8 +67,8 @@ autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
 " }}}
 
 " {{{ python specific settings
-autocmd FileType python map <silent> <leader>b oimport pdb; pdb.set_trace()<esc>
-autocmd FileType python map <silent> <leader>B Oimport pdb; pdb.set_trace()<esc>
+autocmd FileType python map <silent> <leader>bp oimport pdb; pdb.set_trace()<esc>
+autocmd FileType python map <silent> <leader>BP Oimport pdb; pdb.set_trace()<esc>
 " }}}
 
 " {{{ c specific settings
