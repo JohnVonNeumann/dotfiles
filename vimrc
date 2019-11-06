@@ -133,19 +133,11 @@ endif
 Plug 'deoplete-plugins/deoplete-jedi' " deoplete python support
 
 Plug 'airblade/vim-gitgutter'      " provides a left side gutter of git actions
-Plug 'bbatsov/rubocop'
-Plug 'cocopon/iceberg.vim'
 Plug 'davidhalter/jedi-vim'        " <Ctrl-Space> to enable autocomplete
 Plug 'digitalrounin/vim-yaml-folds'  " Help with folding in YAML
 Plug 'elzr/vim-json'               " Json helper
 Plug 'ervandew/supertab'           " use <Tab> to select autocomplete choices
-Plug 'hashivim/vim-hashicorp-tools'
-Plug 'hashivim/vim-terraform'      " terraform support
-Plug 'hashivim/vim-vaultproject'
 Plug 'heavenshell/vim-pydocstring' " provides auto docstring generation
-Plug 'juliosueiras/vim-terraform-completion'
-Plug 'martinda/jenkinsfile-vim-syntax'
-Plug 'ngmy/vim-rubocop'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'nvie/vim-flake8'             " Perhaps redundant with python-mode included
 Plug 'pearofducks/ansible-vim'     " Ansible Vim
@@ -154,16 +146,11 @@ Plug 'scrooloose/syntastic'        " syntax highlighting plugin interface
 Plug 'tpope/vim-fugitive'          " Git wrapper for vim
 Plug 'vim-airline/vim-airline'     " bottom status barring, for a more ide feel
 Plug 'yggdroot/indentline'         " indentation indicator support
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'vim-scripts/c.vim'
 Plug 'tpope/vim-commentary'
 Plug 'sheerun/vim-polyglot'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'vimwiki/vimwiki'
-Plug 'pangloss/vim-javascript'
 Plug 'johnvonneumann/vim-docstring-report'
-Plug 'hashicorp/sentinel.vim'
-Plug 'hashivim/vim-packer'
 Plug 'vim-scripts/bash-support.vim'     " bash ide support
 Plug 'tpope/vim-surround'           " binds for quoting words, `,\"${},\"`
 Plug 'aliou/bats.vim'               " syntax highlighting for bats-core
