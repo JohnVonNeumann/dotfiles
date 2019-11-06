@@ -116,7 +116,7 @@ nnoremap <C-s> :<C-u>FZF<CR>
 
 " vimwiki settings {{{
 let g:vimwiki_use_calendar=1
-let g:vimwiki_list = [{'path': '~/vimwiki/tech'},{'path': '~/vimwiki/personal'}]
+let g:vimwiki_list = [{'path': '~/vimwiki/tech'},{'path': '~/vimwiki/personal'},{'path': "~/vimwiki/work"}]
 " }}}
 
 " Vim Plug {{{
