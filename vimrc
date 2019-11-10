@@ -153,6 +153,10 @@ nmap <silent> <leader>tl :TestLast<CR>
 nmap <silent> <leader>tv :TestVisit<CR>
 " }}}
 
+" Nerdtree {{{
+nnoremap <leader>n :NERDTreeToggle<CR>
+" }}}
+
 " Vim Plug {{{
 call plug#begin('~/.vim/autoload')
 if has('nvim')
@@ -179,6 +183,7 @@ Plug 'yggdroot/indentline'         " indentation indicator support
 Plug 'sheerun/vim-polyglot'        " single plugin for syntax support
 Plug 'janko/vim-test'              " test execution support
 Plug 'Raimondi/delimitMate'        " auto delimiter completion
+Plug 'scrooloose/nerdtree'
 
 " code utility support
 Plug 'tpope/vim-fugitive'          " Git wrapper for vim
