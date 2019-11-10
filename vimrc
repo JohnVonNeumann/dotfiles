@@ -188,6 +188,7 @@ Plug 'scrooloose/nerdtree'
 " code utility support
 Plug 'tpope/vim-fugitive'          " Git wrapper for vim
 Plug 'tpope/vim-commentary'        " easier commenting of code
+Plug 'tpope/vim-dadbod'                " db connections
 
 " language support
 Plug 'digitalrounin/vim-yaml-folds'  " Help with folding in YAML
