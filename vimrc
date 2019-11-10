@@ -15,7 +15,18 @@ let mapleader=","                  "changes the default leader key from / to ,
                                    "so commands can be run with ,{key}
 set spell spelllang=en_au          "spell checking support, with mutable dict
 set showmode                       "on by default in vim, show the current mode
-                                   "in bottom menubar
+                                   ""in bottom menubar
+let g:elite_mode=1                 "Disable arrows for remapping, use hjkl you
+                                   ""lowtier pleb
+" }}}
+
+" Window movements {{{
+if get(g:, 'elite_mode')
+    nnoremap <Up>    <C-w>k
+    nnoremap <Down>  <C-w>j
+    nnoremap <Left>  <C-w>h
+    nnoremap <Right> <C-w>l
+endif
 " }}}
 
 " Folding {{{
