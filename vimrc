@@ -187,28 +187,28 @@ let g:neosnippet#snippets_directory=['~/.vim/bundle/vim-snippets/snippets', '~/.
 
 " Vim Plug {{{
 call plug#begin('~/.vim/autoload')
-if has('nvim')
-  " auto suggestion for python
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
+"if has('nvim')
+"  " auto suggestion for python
+"  "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"else
+"  Plug 'Shougo/deoplete.nvim'
+"  Plug 'roxma/nvim-yarp'
+"  Plug 'roxma/vim-hug-neovim-rpc'
+"endif
 
 " IDE support
-Plug 'deoplete-plugins/deoplete-jedi' " deoplete python support
+" Plug 'deoplete-plugins/deoplete-jedi' " deoplete python support
 Plug 'majutsushi/tagbar'           " a window for tags to be displayed
 Plug 'xolox/vim-easytags'          " client interface for ctags binary
 Plug 'xolox/vim-misc'              " provides req libs for easytags
 Plug 'airblade/vim-gitgutter'      " provides a left side gutter of git actions
-Plug 'davidhalter/jedi-vim'        " <Ctrl-Space> to enable autocomplete
-Plug 'ervandew/supertab'           " use <Tab> to select autocomplete choices
-Plug 'scrooloose/syntastic'        " syntax highlighting plugin interface
+" Plug 'davidhalter/jedi-vim'        " <Ctrl-Space> to enable autocomplete
+" Plug 'ervandew/supertab'           " use <Tab> to select autocomplete choices
+" Plug 'scrooloose/syntastic'        " syntax highlighting plugin interface
 Plug 'vim-airline/vim-airline'     " bottom status barring, for a more ide feel
-Plug 'ludovicchabant/vim-gutentags' " tag file management
+" Plug 'ludovicchabant/vim-gutentags' " tag file management
 Plug 'yggdroot/indentline'         " indentation indicator support
-Plug 'sheerun/vim-polyglot'        " single plugin for syntax support
+" Plug 'sheerun/vim-polyglot'        " single plugin for syntax support
 Plug 'janko/vim-test'              " test execution support
 Plug 'Raimondi/delimitMate'        " auto delimiter completion
 Plug 'scrooloose/nerdtree'
@@ -216,14 +216,16 @@ Plug 'scrooloose/nerdtree'
 " code utility support
 Plug 'tpope/vim-fugitive'          " Git wrapper for vim
 Plug 'tpope/vim-commentary'        " easier commenting of code
-Plug 'tpope/vim-dadbod'                " db connections
+Plug 'tpope/vim-dadbod'            " db connections
+Plug 'Shougo/neosnippet.vim'       " snippet support
+Plug 'Shougo/neosnippet-snippets'  " pre written snippet library
 
 " language support
 Plug 'digitalrounin/vim-yaml-folds'  " Help with folding in YAML
 Plug 'elzr/vim-json'               " Json helper
 Plug 'heavenshell/vim-pydocstring' " provides auto docstring generation
 Plug 'ntpeters/vim-better-whitespace' " Highlight and strip trailing whitespace
-Plug 'nvie/vim-flake8'             " Perhaps redundant with python-mode included
+" Plug 'nvie/vim-flake8'             " Perhaps redundant with python-mode included
 Plug 'pearofducks/ansible-vim'     " Ansible Vim
 Plug 'posva/vim-vue'               " syntax highlighting for vue
 Plug 'johnvonneumann/vim-docstring-report' " find missing py docstrings
@@ -231,7 +233,7 @@ Plug 'vim-scripts/bash-support.vim'     " bash ide support
 Plug 'aliou/bats.vim'               " syntax highlighting for bats-core
 
 " vim utility support
-Plug 'dense-analysis/ale'           " async linting with LangServProt support
+" Plug 'dense-analysis/ale'           " async linting with LangServProt support
 Plug 'junegunn/fzf'                 " fuzzy file matching
 Plug 'itchyny/calendar.vim'         " in vim calendar support with vimwiki integ
 Plug 'tpope/vim-surround'           " binds for quoting words, `,\"${},\"`
