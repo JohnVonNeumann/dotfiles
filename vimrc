@@ -209,6 +209,17 @@ inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
 
 imap <c-space> <Plug>(asyncomplete_force_refresh)
 
+" Setup instructions for this:
+" 1. Fuck pipenv dawg. In the words of John from Tennessee:
+" https://www.youtube.com/watch?v=gQelvSij6js
+" 2. Create a directory wherever for virtualenvs.
+" 3. Then create a neovim directory within it.
+" 4. Use `virtualenv --python=/path/to/python3 .` within the neovim directory.
+" 5. Activate the virtualenv and install into it:
+"       pynvim, python-language-server[all]
+" 6. Set the `g:python3_host_prog` to the python3 bin
+let g:python3_host_prog = '~/.virtualenvs/neovim/bin/python3'
+
 " Plug 'deoplete-plugins/deoplete-jedi' " deoplete python support
 Plug 'majutsushi/tagbar'           " a window for tags to be displayed
 Plug 'xolox/vim-easytags'          " client interface for ctags binary
@@ -253,3 +264,5 @@ Plug 'vimwiki/vimwiki'             " wiki system for note taking
 
 call plug#end()
 " }}}
+
+" vim: set filetype=vim
