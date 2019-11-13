@@ -197,6 +197,18 @@ call plug#begin('~/.vim/autoload')
 "endif
 
 " IDE support
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'ryanolsonx/vim-lsp-python'
+
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
+
+imap <c-space> <Plug>(asyncomplete_force_refresh)
+
 " Plug 'deoplete-plugins/deoplete-jedi' " deoplete python support
 Plug 'majutsushi/tagbar'           " a window for tags to be displayed
 Plug 'xolox/vim-easytags'          " client interface for ctags binary
