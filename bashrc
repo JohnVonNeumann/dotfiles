@@ -203,6 +203,15 @@ alias git-fap="git fetch --all --prune"
 alias git-commit-fix-lint-errors="git commit -m \"FIX lint errors\""
 alias git-count="git log | grep -c commit"
 
+# git-config:
+# Sometimes when I'm working across multiple git hosts, I'll be dealing with
+# code that is not "mine", in that I'll be using different creds, much like the
+# git-personal alias, this helps config the LOCAL git repository, as opposed
+# to use git config global like all the shit guides online tell you to do.
+git-config () {
+  git config user.name $1 && git config user.email $2
+}
+
 # git-squash-commit
 # Sometimes when I'm working with a codebase I will be playing with an idea
 # workflow trying to get it to work, maybe (probably) they're changes that are
