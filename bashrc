@@ -187,10 +187,19 @@ alias whitespaceassassin="ex +'bufdo!%s/\s\+$//' -scxa *.*"
   # -x | use encryption, doesnt seem to work without it, hangs
 
 ### git aliases ###
-alias gitremoveallmergedlocals="git branch --merged | egrep -v '(^\*|master|dev)' | xargs git branch -d"
-alias gitpersonal="git config user.name $GIT_PERSONAL_NAME && git config user.email $GIT_PERSONAL_EMAIL"
-alias git-fap="git fetch --all --prune"
-alias git-commit-fix-lint-errors="git commit -m \"FIX lint errors\""
+if [ -x "$(command -v git)" ]; then
+  alias git-remove-all-merged-locals="git branch --merged | egrep -v '(^\*|master|dev)' | xargs git branch -d"
+
+  # git-personal
+  if [ -n $GIT_PERSONAL_NAME ] && [ -n $GIT_PERSONAL_EMAIL ]; then
+    alias git-config-personal="git config user.name $GIT_PERSONAL_NAME && git config user.email $GIT_PERSONAL_EMAIL"
+  else
+    echo "Set \$GIT_PERSONAL_NAME & \$GIT_PERSONAL_EMAIL";
+  fi
+
+  alias git-fap="git fetch --all --prune"
+  alias git-commit-fix-lint-errors="git commit -m \"FIX lint errors\""
+fi
 
 ### Useful filesystem/project aliases ###
 alias cdopensource="cd $OPENSOURCE_REPO"
