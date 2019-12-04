@@ -7,12 +7,26 @@ set nocompatible
 set guicursor=
 set backspace=indent,eol,start     "had a situation where my vim backspace broke
                                    ""so this is the solution
-set filetype=on                    "enable filetype detection for autocmd 
-set hidden                         ""hide unsaved buffers instead of 
+set filetype=on                    "enable filetype detection for autocmd
+set hidden                         ""hide unsaved buffers instead of
                                    ""closing them, so we can do
                                    "":argdo without pain
 let mapleader=","                  "changes the default leader key from / to ,
                                    "so commands can be run with ,{key}
+set spell spelllang=en_au          "spell checking support, with mutable dict
+set showmode                       "on by default in vim, show the current mode
+                                   ""in bottom menubar
+let g:elite_mode=1                 "Disable arrows for remapping, use hjkl you
+                                   ""lowtier pleb
+" }}}
+
+" Window movements {{{
+if get(g:, 'elite_mode')
+    nnoremap <Up>    <C-w>k
+    nnoremap <Down>  <C-w>j
+    nnoremap <Left>  <C-w>h
+    nnoremap <Right> <C-w>l
+endif
 " }}}
 
 " Folding {{{
@@ -29,13 +43,24 @@ set showcmd                          "show command in bottom bar
 set cursorline                       "highlight current line
 set wildmenu                         "visual autocomplete for command menu
 set showmatch                        "highlight matching parentheses
+set t_Co=256
 " }}}
 
 " Search {{{
 set incsearch                                "search as chars are entered
 set hlsearch                                 "highlight search matches
-nnoremap <leader><space> :nohlsearch <CR>    "<,.> removes all hightlighting 
-" }}} 
+set ignorecase                               "search case insensitively
+nnoremap <leader><space> :nohlsearch <CR>    "<,.> removes all hightlighting
+" }}}
+
+" Whitespace commands {{{
+nnoremap <leader>w :%s/\s\+$//e <CR>    "<,w> removes all errant whitespace
+" }}}
+
+" Settings shortcuts {{{
+nnoremap <leader>sp :set spell! <CR>    "<,sp> negates the current :spell setting
+nnoremap <leader>p :set paste! <CR>     "<,p> negates the current paste setting
+" }}}
 
 " Spaces V Tabs {{{
 set tabstop=4                   "4 space tab
@@ -53,8 +78,8 @@ autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
 " }}}
 
 " {{{ python specific settings
-autocmd FileType python map <silent> <leader>b oimport pdb; pdb.set_trace()<esc>
-autocmd FileType python map <silent> <leader>B Oimport pdb; pdb.set_trace()<esc>
+autocmd FileType python map <silent> <leader>bp oimport pdb; pdb.set_trace()<esc>
+autocmd FileType python map <silent> <leader>BP Oimport pdb; pdb.set_trace()<esc>
 " }}}
 
 " {{{ c specific settings
@@ -88,54 +113,156 @@ set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 1 
+let g:syntastic_check_on_wq = 1
 " }}}
 
-" vim-terraform settings
+" vim-terraform settings {{{
 let g:terraform_align=1
 let g:terraform_fold_sections=1
+" }}}
+
+" fzf settings {{{
+nnoremap <C-s> :<C-u>FZF<CR>
+" }}}
+
+" vimwiki settings {{{
+let g:vimwiki_use_calendar=1
+let g:vimwiki_list = [{'path': '~/vimwiki/tech'},{'path': '~/vimwiki/personal'},{'path': "~/vimwiki/work"}]
+" }}}
+
+" easytags settings {{{
+" Where to look for tags files
+set tags=./tags;,~/.vimtags
+" Sensible defaults
+let g:easytags_events = ['BufReadPost', 'BufWritePost']
+let g:easytags_async = 1
+let g:easytags_dynamic_files = 2
+let g:easytags_resolve_links = 1
+let g:easytags_suppress_ctags_warning = 1
+" }}}
+
+" tagbar settings {{{
+nmap <silent> <leader>b :TagbarToggle<CR>
+" }}}
+
+" vim-test settings {{{
+nmap <silent> <leader>tn :TestNearest<CR>
+nmap <silent> <leader>tf :TestFile<CR>
+nmap <silent> <leader>ts :TestSuite<CR>
+nmap <silent> <leader>tl :TestLast<CR>
+nmap <silent> <leader>tv :TestVisit<CR>
+" }}}
+
+" Nerdtree {{{
+nnoremap <leader>n :NERDTreeToggle<CR>
+" }}}
+
+" neosnippet setting {{{
+" Plugin key-mappings.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+"imap <expr><TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ neosnippet#expandable_or_jumpable() ?
+" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
+
+" Enable snipMate compatibility feature.
+let g:neosnippet#enable_snipmate_compatibility = 1
+"
+" " Tell Neosnippet about the other snippets
+let g:neosnippet#snippets_directory=['~/.vim/bundle/vim-snippets/snippets', '~/.vim/snippets/']
+" }}}
 
 " Vim Plug {{{
 call plug#begin('~/.vim/autoload')
-if has('nvim')
-  " auto suggestion for python
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
+"if has('nvim')
+"  " auto suggestion for python
+"  "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"else
+"  Plug 'Shougo/deoplete.nvim'
+"  Plug 'roxma/nvim-yarp'
+"  Plug 'roxma/vim-hug-neovim-rpc'
+"endif
 
+" IDE support
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'ryanolsonx/vim-lsp-python'
+
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
+
+imap <c-space> <Plug>(asyncomplete_force_refresh)
+
+" Setup instructions for this:
+" 1. Fuck pipenv dawg. In the words of John from Tennessee:
+" https://www.youtube.com/watch?v=gQelvSij6js
+" 2. Create a directory wherever for virtualenvs.
+" 3. Then create a neovim directory within it.
+" 4. Use `virtualenv --python=/path/to/python3 .` within the neovim directory.
+" 5. Activate the virtualenv and install into it:
+"       pynvim, python-language-server[all]
+" 6. Set the `g:python3_host_prog` to the python3 bin
+let g:python3_host_prog = '~/.virtualenvs/neovim/bin/python3'
+
+" Plug 'deoplete-plugins/deoplete-jedi' " deoplete python support
+Plug 'majutsushi/tagbar'           " a window for tags to be displayed
+Plug 'xolox/vim-easytags'          " client interface for ctags binary
+Plug 'xolox/vim-misc'              " provides req libs for easytags
 Plug 'airblade/vim-gitgutter'      " provides a left side gutter of git actions
-Plug 'bbatsov/rubocop'
-Plug 'cocopon/iceberg.vim'
-Plug 'davidhalter/jedi-vim'        " <Ctrl-Space> to enable autocomplete
+" Plug 'davidhalter/jedi-vim'        " <Ctrl-Space> to enable autocomplete
+" Plug 'ervandew/supertab'           " use <Tab> to select autocomplete choices
+" Plug 'scrooloose/syntastic'        " syntax highlighting plugin interface
+Plug 'vim-airline/vim-airline'     " bottom status barring, for a more ide feel
+" Plug 'ludovicchabant/vim-gutentags' " tag file management
+Plug 'yggdroot/indentline'         " indentation indicator support
+" Plug 'sheerun/vim-polyglot'        " single plugin for syntax support
+Plug 'janko/vim-test'              " test execution support
+Plug 'Raimondi/delimitMate'        " auto delimiter completion
+Plug 'scrooloose/nerdtree'
+
+" code utility support
+Plug 'tpope/vim-fugitive'          " Git wrapper for vim
+Plug 'tpope/vim-commentary'        " easier commenting of code
+Plug 'tpope/vim-dadbod'            " db connections
+Plug 'Shougo/neosnippet.vim'       " snippet support
+Plug 'Shougo/neosnippet-snippets'  " pre written snippet library
+
+" language support
 Plug 'digitalrounin/vim-yaml-folds'  " Help with folding in YAML
 Plug 'elzr/vim-json'               " Json helper
-Plug 'ervandew/supertab'           " use <Tab> to select autocomplete choices
-Plug 'hashivim/vim-hashicorp-tools'
-Plug 'hashivim/vim-terraform'      " terraform support
-Plug 'hashivim/vim-vaultproject'
 Plug 'heavenshell/vim-pydocstring' " provides auto docstring generation
-Plug 'juliosueiras/vim-terraform-completion'
-Plug 'martinda/jenkinsfile-vim-syntax'
-Plug 'ngmy/vim-rubocop'
-Plug 'ntpeters/vim-better-whitespace'
-Plug 'nvie/vim-flake8'             " Perhaps redundant with python-mode included
+Plug 'ntpeters/vim-better-whitespace' " Highlight and strip trailing whitespace
+" Plug 'nvie/vim-flake8'             " Perhaps redundant with python-mode included
 Plug 'pearofducks/ansible-vim'     " Ansible Vim
 Plug 'posva/vim-vue'               " syntax highlighting for vue
-Plug 'scrooloose/syntastic'        " syntax highlighting plugin interface
-Plug 'tpope/vim-fugitive'          " Git wrapper for vim
-Plug 'vim-airline/vim-airline'     " bottom status barring, for a more ide feel
-Plug 'yggdroot/indentline'         " indentation indicator support
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'vim-scripts/c.vim'
-Plug 'tpope/vim-commentary'
-Plug 'sheerun/vim-polyglot'
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'vimwiki/vimwiki'
-Plug 'pangloss/vim-javascript'
-Plug 'johnvonneumann/vim-docstring-report'
+Plug 'johnvonneumann/vim-docstring-report' " find missing py docstrings
+Plug 'vim-scripts/bash-support.vim'     " bash ide support
+Plug 'aliou/bats.vim'               " syntax highlighting for bats-core
+
+" vim utility support
+" Plug 'dense-analysis/ale'           " async linting with LangServProt support
+Plug 'junegunn/fzf'                 " fuzzy file matching
+Plug 'itchyny/calendar.vim'         " in vim calendar support with vimwiki integ
+Plug 'tpope/vim-surround'           " binds for quoting words, `,\"${},\"`
+Plug 'vimwiki/vimwiki'             " wiki system for note taking
+
 call plug#end()
 " }}}
 
+" vim: set filetype=vim

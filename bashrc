@@ -34,6 +34,10 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
+# added to enable colour term in mac:terminal/screen/vim combo, one of them had
+# a bug which disabled colour
+TERM=xterm-256color
+
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
     xterm-color|*-256color) color_prompt=yes;;
@@ -115,7 +119,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# commented out and got bash_profile source working, basically this was 
+# commented out and got bash_profile source working, basically this was
 # supplying a circular reference, recommend using `source ~/.envvars`
 # or something of the like if this is needed, noticed only had this issue on
 # macos, so i only source if machtype isnt darwin
@@ -132,6 +136,12 @@ fi
 
 ### Useful file locations
 export SSH_DIR=~/.ssh
+
+### Grep for values with standard every-run conditions
+# $1 = Search value
+qgrep () {
+  grep -nr $1 . --exclude-dir={.terraform,.git,modules,vendor} --exclude={*.log,*.log.?} --color=always --line-number
+}
 
 ### ansible related shortcut/functions ###
 # command -v syntax is preferred as it is internal shell functionality and doesn't
@@ -181,10 +191,10 @@ alias whitespaceassassin="ex +'bufdo!%s/\s\+$//' -scxa *.*"
   # // | replace with nothing
   # Ex:
   # :help Ex is a mode of vim that provides extra cmd line processing
-  #  + | command following will be exec'd after first file is read
+  #  + | command following will be executed after first file is read
   # -s | silent mode
-  # -c | command, i think, docs are shaky, doesnt work without
-  # -x | use encryption, doesnt seem to work without it, hangs
+  # -c | command, i think, docs are shaky, doesn't work without
+  # -x | use encryption, doesn't seem to work without it, hangs
 
 ### git aliases ###
 if [ -x "$(command -v git)" ]; then
@@ -199,13 +209,83 @@ if [ -x "$(command -v git)" ]; then
 
   alias git-fap="git fetch --all --prune"
   alias git-commit-fix-lint-errors="git commit -m \"FIX lint errors\""
+  alias git-count="git log | grep -c commit"
+
+  # git-config:
+  # Sometimes when I'm working across multiple git hosts, I'll be dealing with
+  # code that is not "mine", in that I'll be using different creds, much like the
+  # git-personal alias, this helps config the LOCAL git repository, as opposed
+  # to use git config global like all the shit guides online tell you to do.
+  git-config () {
+    git config user.name $1 && git config user.email $2
+  }
+
+  # git-squash-commit
+  # Sometimes when I'm working with a codebase I will be playing with an idea
+  # workflow trying to get it to work, maybe (probably) they're changes that are
+  # similar to other temporally related commits, so in this case, they'll likely
+  # all get squashed into a final fix commit at the end, in this case, I'll be
+  # trying something, then pushing to CI, then trying again and pushing to CI.
+  # This helps do that faster.
+  git-squash-commit () {
+    git status > /dev/null 2>&1
+    if [[ $? != 0 ]]; then
+      echo "Error: Not a git repository.";
+    else
+      # TODO: Spin out the `branch` declaration into a function, keep it DRY.
+      local branch=$(git branch | grep "*" | awk '{ print $2 }')
+      git commit -am "SQUASH commit - debugging/fixes"
+      git push origin $branch
+    fi
+  }
+
+  # git-push
+  # The majority of my pushes exist on branches of active development, I know I
+  # can set an upstream and then just use `git push` but I always forget, so this
+  # will do.
+  git-push () {
+    local branch=$(git branch | grep "*" | awk '{ print $2 }')
+    if [[ $? == 0 ]]; then
+      git push origin $branch
+    else
+      echo "Error: Couldn't source branch name"
+    fi
+  }
+
+  # git-push-with-lease
+  # Just the git-push function with the --force-with-lease flag set to be able to
+  # do pushes after rebasing.
+  # TODO: Just allow for a flag to be set in the `git-push` function.
+  git-push-with-lease () {
+    local branch=$(git branch | grep "*" | awk '{ print $2 }')
+    if [[ $? == 0 ]]; then
+      git push origin $branch --force-with-lease
+    else
+      echo "Error: Couldn't source branch name"
+    fi
+  }
+
+  # git-pr-patch-data
+  # It's useful to get a nice output of all changes for a branch against master
+  # sometimes. This can then be pasted into a pull request description and be
+  # viewed by those reviewing the PR.
+  git-pr-patch-data () {
+    local branch=$(git branch | grep "*" | awk '{ print $2 }')
+    if [[ $? == 0 ]]; then
+      git request-pull -p origin/master origin $branch
+    else
+      echo "Error: Couldn't source branch name"
+    fi
+  }
 fi
 
+
 ### Useful filesystem/project aliases ###
-alias cdopensource="cd $OPENSOURCE_REPO"
-alias cdgo="cd ~/code/go/src"
-alias cdssh="cd $SSH_DIR"
+alias cdc="cd && clear"
 alias cdcode="cd ~/code"
+alias cdgo="cd ~/code/go/src"
+alias cdopensource="cd $OPENSOURCE_REPO"
+alias cdssh="cd $SSH_DIR"
 
 if [ -x "$(command -v awskeyring)" ]; then
   awsenv () {
@@ -220,7 +300,7 @@ fi
 # xclip is apt installed, provides an easy access point to the x clipboard
 # xclip requires x11, therefore it's not gonna work on MacOS because no x11
 # so this should do a system/os id check before running, need a function to
-# id this, possibly already written via setup.sh 
+# id this, possibly already written via setup.sh
 # update 231118: just perform bash test to see if its installed, check later
 # if this is appropriate
 if [ -x "$( command -v xclip)" ]; then
@@ -258,3 +338,4 @@ export GOPATH="$HOME/code/go"
 export PATH="$PATH:/usr/local/bin"
 ### Enable superuser bin finding
 PATH=$PATH:/usr/sbin:/sbin
+PATH="$PATH:$HOME"
