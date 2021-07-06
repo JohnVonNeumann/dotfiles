@@ -124,9 +124,7 @@ fi
 # or something of the like if this is needed, noticed only had this issue on
 # macos, so i only source if machtype isnt darwin
 # enable bash_profile envvars to be used
-#if ! [ "$MACHTYPE" =~ "darwin" ]; then
-#  source ~/.bash_profile
-#fi
+source ~/.bash_profile
 
 #####################################################################################
 
