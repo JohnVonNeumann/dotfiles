@@ -337,3 +337,6 @@ export PATH="$PATH:/usr/local/bin"
 ### Enable superuser bin finding
 PATH=$PATH:/usr/sbin:/sbin
 PATH="$PATH:$HOME"
+
+# RVM activate for each shell
+source /etc/profile.d/rvm.sh
